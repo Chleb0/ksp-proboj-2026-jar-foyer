@@ -5,5 +5,13 @@
       "windows"
     ],
     "args": "../maps/maze.ppm"
+  },
+
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "py"
+    ],
+    "args": "../maps/maze.ppm"
   }
 ]
