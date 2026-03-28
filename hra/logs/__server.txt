@@ -1,5 +1,7 @@
+Player windows failed to initialize
+Player windows has been killed
 STARTING TURN: 0
-Game end: Last player alive
+Game end: No players left
 Sending scores
 [proboj] process terminated
  exit: 1

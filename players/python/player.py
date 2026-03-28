@@ -39,6 +39,10 @@ class Player(PlayerInterface):
                 "dones": []
             }
 
+    def generate_layers(self, world: World, point: Point, vision: int) -> List:
+        topright = (point.x-vision, point.y-vision)
+        
+
     def get_turn(self, world: World) -> List[Move]:
         if self.train_mode: return self.get_turn_train(world)
 

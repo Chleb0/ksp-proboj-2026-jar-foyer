@@ -1,3 +1,8 @@
+[proboj] 
+init
+[proboj] 
+STARTING TURN: 0
+
 [proboj] process terminated
- exit: 0
- err: fork/exec C:\Users\Sebik\Documents\pornboj\ksp-proboj-2026-jar-foyer\players\python\player.py: %1 is not a valid Win32 application.
+ exit: 1
+ err: <nil>
