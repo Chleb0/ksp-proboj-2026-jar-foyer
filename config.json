@@ -7,16 +7,8 @@
       "language": "py"
     },
     "windows": {
-      "command": "C:/absolutna/cesta/ku/python.exe ../python/player.py",
+      "command": "C:/Users/Sebik/AppData/Local/Programs/Python/Python312",
       "language": "py"
-    },
-    "cpp1": {
-      "command": "./players/cpp/player",
-      "language": "cpp"
-    },
-    "cpp2": {
-      "command": "./players/cpp/player",
-      "language": "cpp"
     }
   },
   "timeout": {

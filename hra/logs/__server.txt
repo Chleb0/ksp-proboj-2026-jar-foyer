@@ -1,0 +1,3 @@
+[proboj] process terminated
+ exit: 0
+ err: exec: "C:\\Users\\Sebik\\Documents\\pornboj\\ksp-proboj-2026-jar-foyer\\server_linux": executable file not found in %PATH%

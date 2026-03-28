@@ -12,7 +12,7 @@ class Player(PlayerInterface):
         print(*args, file=sys.stderr)
 
     def init(self, world: World) -> None:
-        Player.log("init")
+        Player.log("Som boh blesku a sex appealu. -idk asi Zeus")
         pass
 
     def get_turn(self, world: World) -> List[Move]:
