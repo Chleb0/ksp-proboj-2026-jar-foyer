@@ -26,6 +26,8 @@ class Player(PlayerInterface):
         memory: PPOMemory = torch.load(r"C:\Users\Sebik\Documents\pornboj\ksp-proboj-2026-jar-foyer\players\python\memory.pt")
 
     def get_turn(self, world: World) -> List[Move]:
+        if self.train_mode: return self.get_turn_train(world)
+        
         moves = []
         for id, ant in world.alive_shades.items():
             neighbours = ant.position.get_neighbouring()
@@ -35,6 +37,9 @@ class Player(PlayerInterface):
                     moves.append(Move(id, ngb))
                     break
         return moves
+    
+    def get_turn_train(self, world: World) -> List[Move]:
+        pass
 
 if __name__ == "__main__":
     game = Game(Player())
