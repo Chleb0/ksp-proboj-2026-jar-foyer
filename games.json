@@ -2,9 +2,7 @@
   {
     "gamefolder": "hra",
     "players": [
-      "cpp1",
-      "cpp2",
-      "py"
+      "windows"
     ],
     "args": "../maps/maze.ppm"
   }

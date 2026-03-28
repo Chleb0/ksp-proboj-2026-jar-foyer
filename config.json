@@ -1,13 +1,9 @@
 {
-  "server": "./server_linux",
+  "server": "./server_windows.exe",
   "game_root": ".",
   "players": {
-    "py": {
-      "command": "./players/python/player.py",
-      "language": "py"
-    },
     "windows": {
-      "command": "C:/Users/Sebik/AppData/Local/Programs/Python/Python312",
+      "command": "C:/Users/Sebik/AppData/Local/Programs/Python/Python312/python.exe C:/Users/Sebik/Documents/pornboj/ksp-proboj-2026-jar-foyer/players/python/player.py",
       "language": "py"
     }
   },
