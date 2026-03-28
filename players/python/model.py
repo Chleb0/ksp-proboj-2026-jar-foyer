@@ -9,23 +9,19 @@ from torch.distributions import Categorical
 
 
 class PPOActorCritic(nn.Module):
-    def __init__(self, img_channels: int, extra_input_dim: int, action_dim: int = 5) -> None:
+    def __init__(self, input_channels: int, extra_input_dim: int, action_dim: int = 5) -> None:
         super().__init__()
 
         # CNN branch
         self.cnn: nn.Sequential = nn.Sequential(
-            nn.Conv2d(img_channels, 32, kernel_size=8, stride=4),
-            nn.ReLU(),
-            nn.Conv2d(32, 64, kernel_size=4, stride=2),
-            nn.ReLU(),
-            nn.Conv2d(64, 64, kernel_size=3, stride=1),
+            nn.Conv2d(input_channels, 5, kernel_size=5, stride=1),
             nn.ReLU(),
             nn.Flatten()
         )
 
         # Compute CNN output size dynamically
         with torch.no_grad():
-            dummy: Tensor = torch.zeros(1, img_channels, 84, 84)
+            dummy: Tensor = torch.zeros(1, input_channels, 84, 84)
             cnn_out_dim: int = self.cnn(dummy).shape[1]
 
         # Extra input branch
