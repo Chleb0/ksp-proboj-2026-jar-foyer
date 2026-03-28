@@ -9,7 +9,7 @@ from torch.distributions import Categorical
 
 
 class PPOActorCritic(nn.Module):
-    def __init__(self, input_channels: int, extra_input_dim: int, action_dim: int = 5) -> None:
+    def __init__(self, input_channels: int, extra_input_dim: int, action_dim: int) -> None:
         super().__init__()
 
         # CNN branch
@@ -147,7 +147,7 @@ class PPO:
             self.optimizer.step()
 
 class PPOMemory(TypedDict):
-    img: List[Tensor]
+    board: List[Tensor]
     extra: List[Tensor]
     actions: List[int]
     log_probs: List[float]

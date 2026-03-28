@@ -4,9 +4,13 @@ from typing import List
 from data import World, Move, Person, World, Map, Shade, Tombstone, Point
 from game import Game, PlayerInterface
 from random import shuffle
-
+from model import *
+import torch
 
 class Player(PlayerInterface):
+    memory: PPOMemory
+    train_mode: bool
+
     @staticmethod
     def log(*args):
         print(*args, file=sys.stderr)
@@ -14,6 +18,12 @@ class Player(PlayerInterface):
     def init(self, world: World) -> None:
         Player.log("Som boh blesku a sex appealu. -idk asi Zeus")
         pass
+
+    def backup_mem(self) -> None:
+        torch.save(self.memory, "memory.pt")
+    
+    def load_memory(self) -> None:
+        memory: PPOMemory = torch.load(r"C:\Users\Sebik\Documents\pornboj\ksp-proboj-2026-jar-foyer\players\python\memory.pt")
 
     def get_turn(self, world: World) -> List[Move]:
         moves = []

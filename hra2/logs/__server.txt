@@ -1,0 +1,8 @@
+Player py failed to initialize
+Player py has been killed
+STARTING TURN: 0
+Game end: No players left
+Sending scores
+[proboj] process terminated
+ exit: 1
+ err: <nil>
