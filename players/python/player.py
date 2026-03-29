@@ -70,13 +70,13 @@ def getCut(board: Tensor, position: Point, vision: int) -> Tensor:
 
 
 
-    start_x = x+1+VISION
-    start_y = y+1+VISION
+    start_x = x+vision
+    start_y = y+vision
 
     _, h, w = board.shape
 
-    end_x = min(start_x+2*vision+1, h+vision)
-    end_y = min(start_y+2*vision+1, w+vision)
+    end_x = start_x+2*vision+1
+    end_y = start_y+2*vision+1
 
     return board[:, start_x:end_x, start_y:end_y]
 
@@ -104,7 +104,7 @@ def boardSurface(world:World, vision:int) -> List:
                 layer[y][x] = 0
             if x >= width+vision or y >= width+vision:
                 layer[y][x] = 0
-    shitfpoint = Point(vision, vision)
+    shitfpoint = Point(vision-1, vision-1)
     for voda in world.map.water_tiles:
         boardposition = voda+shitfpoint
         layer[boardposition.y][boardposition.x] = 0
@@ -206,10 +206,14 @@ class Player(PlayerInterface):
             self.shade_positions[ghost.position] = ghost
 
     def get_turn(self, world: World) -> List[Move]:
+        self.preprocess(world)
         fullboard = getBoard(world, 11)  #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
         Player.log(getCut(fullboard, Point(10, 10), 5))
         Player.log("toto je pravy horny roh")
         Player.log(self.shade_positions)
+        veci = list(self.shade_positions.keys())
+        vec = veci[0]
+        x, y = vec.x, vec.y
         Player.log(getCut(fullboard, Point(0, 0), 5))
         if self.train_mode: return self.get_turn_train(world)
 

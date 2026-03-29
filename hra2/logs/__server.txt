@@ -1,4 +1,4 @@
-Max food count is: 3
+Max food count is: 2
 STARTING TURN: 0
 Game end: Last player alive
 Sending scores
