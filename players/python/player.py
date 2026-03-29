@@ -68,13 +68,15 @@ def getCut(board: Tensor, position: Point, vision: int) -> Tensor:
 
     x, y = position.x, position.y
 
-    start_x = x-vision
-    start_y = y-vision
+
+
+    start_x = x+1+VISION
+    start_y = y+1+VISION
 
     _, h, w = board.shape
 
-    end_x = min(start_x + vision*2+1, h)
-    end_y = min(start_y + vision*2+1, w)
+    end_x = min(start_x+2*vision+1, h+vision)
+    end_y = min(start_y+2*vision+1, w+vision)
 
     return board[:, start_x:end_x, start_y:end_y]
 
@@ -102,18 +104,16 @@ def boardSurface(world:World, vision:int) -> List:
                 layer[y][x] = 0
             if x >= width+vision or y >= width+vision:
                 layer[y][x] = 0
-    shitfpoint = Point(-vision-5, -vision-5)
+    shitfpoint = Point(vision, vision)
     for voda in world.map.water_tiles:
         boardposition = voda+shitfpoint
         layer[boardposition.y][boardposition.x] = 0
-    stred = Point(vision, vision)
-    layer[stred.y][stred.x] = 0
     return layer
 
 def boardEnemies(world:World, vision:int) -> List:
     width, height = world.map.width, world.map.height
     layer = [[0 for i in range(width+vision*2)] for j in range(height+vision*2)]
-    shitfpoint = Point(-vision, -vision)
+    shitfpoint = Point(vision, vision)
     for id, duch in world.alive_shades.items():
         if duch.owner != world.my_id:
             duchpos = duch.position
@@ -124,7 +124,7 @@ def boardEnemies(world:World, vision:int) -> List:
 def boardFriends(world:World, vision:int) -> List:
     width, height = world.map.width, world.map.height
     layer = [[0 for i in range(width+vision*2)] for j in range(height+vision*2)]
-    shitfpoint = Point(-vision, -vision)
+    shitfpoint = Point(vision, vision)
     for id, duch in world.alive_shades.items():
         if duch.owner == world.my_id:
             duchpos = duch.position
@@ -135,7 +135,7 @@ def boardFriends(world:World, vision:int) -> List:
 def boardHomes(world:World, vision:int) -> List:
     width, height = world.map.width, world.map.height
     layer = [[0 for i in range(width+vision*2)] for j in range(height+vision*2)]
-    shitfpoint = Point(-vision, -vision)
+    shitfpoint = Point(vision, vision)
     for home in world.alive_tombstones:
         if home.owner == world.my_id:
             homepos = home.position
@@ -146,7 +146,7 @@ def boardHomes(world:World, vision:int) -> List:
 def boardEnemyHomes(world:World, vision:int) -> List:
     width, height = world.map.width, world.map.height
     layer = [[0 for i in range(width+vision*2)] for j in range(height+vision*2)]
-    shitfpoint = Point(-vision, -vision)
+    shitfpoint = Point(vision, vision)
     for home in world.alive_tombstones:
         if home.owner != world.my_id:
             homepos = home.position
@@ -157,7 +157,7 @@ def boardEnemyHomes(world:World, vision:int) -> List:
 def boardPeople(world:World, vision:int) -> List:
     width, height = world.map.width, world.map.height
     layer = [[0 for i in range(width+vision*2)] for j in range(height+vision*2)]
-    shitfpoint = Point(-vision, -vision)
+    shitfpoint = Point(vision, vision)
     for person in world.alive_people:
         personpos = person.position
         boardpostion = personpos+shitfpoint
@@ -209,7 +209,9 @@ class Player(PlayerInterface):
         self.preprocess(world)
         fullboard = getBoard(world, 11)  #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
         Player.log(getCut(fullboard, Point(10, 10), 5))
-        Player.log("toto je pravy horny roh", getCut(fullboard, Point(0, 0), 5))
+        Player.log("toto je pravy horny roh")
+        Player.log(self.shade_positions)
+        Player.log(getCut(fullboard, Point(0, 0), 5))
         if self.train_mode: return self.get_turn_train(world)
 
         self.log(getCut(fullboard, Point(10, 10), 11))
@@ -242,7 +244,7 @@ class Player(PlayerInterface):
 
             fullboard = getBoard(world, VISION) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
 
-            self.log(getCut(fullboard, Point(10, 10), VISION))
+            self.log(getCut(fullboard, Point(VISION, VISION), VISION))
 
             action, log_prob, _ = self.model.model.get_action(board, extra)
             volba = int(action.item())
