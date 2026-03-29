@@ -1,4 +1,4 @@
-Max food count is: 2
+Max food count is: 1
 Player windows failed to initialize
 Player windows has been killed
 STARTING TURN: 0

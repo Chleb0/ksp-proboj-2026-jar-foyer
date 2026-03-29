@@ -8,27 +8,7 @@ from random import shuffle
 from model import *
 import torch
 
-def bfs(world: World, start:Point, end:Point, directions:List) -> List:
-    width, height = world.map.width, world.map.height
-    layer = [[1 for i in range(width)] for j in range(height)]
-    for voda in world.map.water_tiles:
-        layer[voda.x][voda.y] = 0
-    
-    q = deque([start, []])
-    visited = set([start])
 
-    if start == end:
-        return []
-    
-    endnotfound = False
-
-    while endnotfound == False:
-        new = q.popleft()
-        neighbours = new.get_neighbouring()
-        for neighbour in neighbours:
-            
-            if neighbour == end:
-                endnotfound = True
 
 def add_to_queue(visited: dict[Point, Point], q: List[Point], frm: Point):
     move_def : dict = {
@@ -67,26 +47,13 @@ def bfs_find_person(world: World, start: Point, pipel: dict[Point, Person]) -> P
 def getCut(board: Tensor, position: Point, vision: int) -> Tensor:
 
     x, y = position.x, position.y
-
-    start_x = x+1+vision
-    start_y = y+1+vision
-
-    _, h, w = board.shape
-
-    end_x = start_x+2*vision+1
-    end_y = start_y+2*vision+1
-
-=======
-    start_x = x-vision
-    start_y = y-vision
-    end_x = x+vision+1
-    end_y = y+vision+1
+    start_x = x
+    start_y = y
+    end_x = x+2*vision+1
+    end_y = y+2*vision+1
 
     _, h, w = board.shape
-
->>>>>>> 2736407739fd209fd69f1c652b01a8d2ebd95942
     return board[:, start_x:end_x, start_y:end_y]
-
 
 
 def getBoard(world: World, vision) -> Tensor:
@@ -111,7 +78,7 @@ def boardSurface(world:World, vision:int) -> List:
                 layer[y][x] = 0
             if x >= width+vision or y >= width+vision:
                 layer[y][x] = 0
-    shitfpoint = Point(vision-1, vision-1)
+    shitfpoint = Point(vision, vision)
     for voda in world.map.water_tiles:
         boardposition = voda+shitfpoint
         layer[boardposition.y][boardposition.x] = 0
@@ -216,7 +183,8 @@ class Player(PlayerInterface):
         self.preprocess(world)
         self.preprocess(world)
         fullboard = getBoard(world, VISION)  #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
-        Player.log(getCut(fullboard, Point(10, 10), VISION))
+        Player.log(getCut(fullboard, Point(world.map.width-1, world.map.height-1), VISION))
+        Player.log(world.alive_tombstones)
         Player.log("toto je pravy horny roh")
         Player.log(self.shade_positions)
         veci = list(self.shade_positions.keys())
