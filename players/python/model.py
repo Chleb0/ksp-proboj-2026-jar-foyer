@@ -123,8 +123,8 @@ class PPO:
     def update(self, memory: PPOMemory, ghost: ShadeID) -> None:
         boards: Tensor = torch.stack(memory['board'][ghost])
         extras: Tensor = torch.stack(memory['extra'][ghost])
-        actions: Tensor = torch.tensor(memory['actions'][ghost])
-        old_log_probs: Tensor = torch.tensor(memory['log_probs'][ghost])
+        actions: Tensor = torch.tensor(memory['actions'][ghost], dtype=torch.long)
+        old_log_probs: Tensor = torch.tensor(memory['log_probs'][ghost], dtype=torch.float32)
         rewards: List[float] = memory['rewards'][ghost]
         dones: List[bool] = memory['dones'][ghost]
 
@@ -159,7 +159,7 @@ def save_checkpoint(
     ppo: PPO,
     file_path: str
 ) -> None:
-    temp_path = file_path + "model.tmp"
+    temp_path = file_path
 
     checkpoint = {
         "model_state_dict": ppo.model.state_dict(),

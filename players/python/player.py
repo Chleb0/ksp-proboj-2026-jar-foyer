@@ -133,6 +133,11 @@ def boardPeople(world:World, vision:int) -> List:
     return layer
 
 
+INPUT_CHANNELS = 5
+OUTPUT_CHANNELS = 5
+EXTRA_STAT = 1
+BACKUP_PATH = os.path.dirname(os.path.abspath(__file__)) + "/"
+
 class Player(PlayerInterface):
     memory: PPOMemory
     model: PPO
@@ -151,6 +156,11 @@ class Player(PlayerInterface):
 
     def init(self, world: World) -> None:
         Player.log("Som boh blesku a sex appealu. -idk asi Zeus")
+        
+        actor_model : PPOActorCritic = PPOActorCritic(INPUT_CHANNELS, EXTRA_STAT, OUTPUT_CHANNELS)
+        self.model = PPO(actor_model)
+
+        load_checkpoint(self.model, os.path.dirname(os.path.abspath(__file__)) + "/backup.tmp")
         pass
     
     def load_memory(self) -> None:
@@ -195,17 +205,23 @@ class Player(PlayerInterface):
 
 
         moves = []
+        shade_diff = self.shades_cnt(world) - self.lt_alive
+        tom_diff = self.tom_cnt(world) - self.lt_tomstones
+
         for id, ant in world.alive_shades.items():
             
             board : Tensor
-            reward: float = self.eval_last_move(world, ant)
+            extra: Tensor
+            reward: float = self.eval_last_move(world, ant, shade_diff, tom_diff)
             if len(self.memory["board"][id]) != 0: self.memory["rewards"][id][-1] = reward
 
             fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
 
             self.log(getCut(fullboard, Point(10, 10), vision))
 
-            
+            action, log_prob, _ = self.model.model.get_action(board, extra)
+            volba = int(action.item())
+
             # HLADIK TU DOPLN VECI KTORE RATAS
             self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
                                                 # water/ground - 0/1
@@ -216,16 +232,23 @@ class Player(PlayerInterface):
                                                 # nic/ clovek
 
             self.memory["extra"][id].append(extra)  #toto chcu byt tie features
-            self.memory["actions"][id].append(action.item())
+            self.memory["actions"][id].append(int(action.item()))
             self.memory["log_probs"][id].append(log_prob.item())
             self.memory["rewards"][id].append(0.0)
-            self.memory["dones"][id].append(done)
+            self.memory["dones"][id].append(ant.will_i_die(self.shade_positions))
 
             self.update_lt(world)
 
-            akcia: List
-
             #action je jeden boolean set na true vo vektore velkosti 5
+
+            """
+            Volby
+            1 - hore
+            2 - doprava
+            3 - dole
+            4 - dolava
+            5 - za clovekom
+            """
 
             #nech sa rozhodne medzi
             # chod k clovekovi najblizsiemu
@@ -252,20 +275,10 @@ class Player(PlayerInterface):
                 out += 1
         return out
 
-    def eval_last_move(self, world: World, ghost: Shade) -> float:
-        shade_diff = self.shades_cnt(world) - self.lt_alive
-        tom_diff = self.tom_cnt(world) - self.lt_tomstones
-        
-        for id, ant in world.alive_shades.items():
-
-
-            # HLADIK TU DOPLN VECI KTORE RATAS
-            self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
-            self.memory["extra"][id].append(extra)  #toto chcu byt tie features
-            self.memory["actions"][id].append(action.item())
-            self.memory["log_probs"][id].append(log_prob.item())
-            self.memory["rewards"][id].append(reward)
-            self.memory["dones"][id].append(done)
+    def eval_last_move(self, world: World, ghost: Shade, shade_diff: int, tom_diff: int) -> float:
+        kills = 0
+        dies = ghost.will_i_die(self.shade_positions)
+        return kills * 10 - dies * 10 + shade_diff + tom_diff*50
 
     def setzeromem(self, ghost: ShadeID):
         self.memory["board"][ghost] = []
@@ -278,7 +291,7 @@ class Player(PlayerInterface):
     def train_one_ghost(self, ghost: ShadeID):
         self.model.update(self.memory, ghost)
         self.setzeromem(ghost)
-        save_checkpoint(self.model, os.path.dirname(os.path.abspath(__file__)) + "/")
+        save_checkpoint(self.model, BACKUP_PATH)
 
     def check_ghost_memory(self, ghost: ShadeID, world: World):
         if ghost not in self.memory["board"]:

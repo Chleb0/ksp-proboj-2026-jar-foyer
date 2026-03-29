@@ -6,10 +6,28 @@
 
 #include <algorithm>
 #include <glaze/beve/header.hpp>
+#include <random>
 #include <sstream>
 #include <sys/stat.h>
 
+int MAX_FOOD_COUNT;
+double POINTS_PER_HILL;
+double RAZING_POINTS;
+
 using namespace std;
+
+void set_score_constants(int spawned_hills_count, int player_count) {
+    double ratio = (double) spawned_hills_count / player_count;
+
+    POINTS_PER_HILL = 1.0 / ratio;
+    RAZING_POINTS = 2.0 / ratio;
+}
+
+void set_max_food_count(int player_count) {
+    std::uniform_int_distribution<> dist(player_count, 3 * player_count);
+    MAX_FOOD_COUNT = dist(rng);
+    cerr << "Max food count is: " << MAX_FOOD_COUNT << endl;
+}
 
 optional<Game> Game::load_config() {
     runner::Status status;
@@ -52,6 +70,9 @@ optional<Game> Game::load_config() {
         back_inserter(selected_hills), used_hills, rng);
     shuffle(selected_hills.begin(), selected_hills.end(), rng);
 
+    set_max_food_count(player_count);
+    set_score_constants(used_hills, player_count);
+
     int current_hill = 0;
     // setup alive players
     for(const PlayerConfig& conf : players) {
@@ -70,5 +91,5 @@ optional<Game> Game::load_config() {
         insert(game.all_players, std::move(player));
     }
 
-    return std::move(game);
+    return game;
 }
