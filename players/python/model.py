@@ -11,11 +11,11 @@ import os
 
 class PPOMemory(TypedDict):
     board: dict[ShadeID, List[Tensor]]
-    extra: Dict[ShadeID, List[Tensor]]
-    actions: Dict[ShadeID, List[int]]
-    log_probs: Dict[ShadeID, List[float]]
-    rewards: Dict[ShadeID, List[float]]
-    dones: Dict[ShadeID, List[bool]]
+    extra: dict[ShadeID, List[Tensor]]
+    actions: dict[ShadeID, List[int]]
+    log_probs: dict[ShadeID, List[float]]
+    rewards: dict[ShadeID, List[float]]
+    dones: dict[ShadeID, List[bool]]
 
 class PPOActorCritic(nn.Module):
     def __init__(self, input_channels: int, extra_input_dim: int, action_dim: int) -> None:

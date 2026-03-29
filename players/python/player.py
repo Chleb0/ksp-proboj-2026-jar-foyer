@@ -15,7 +15,7 @@ def bfs(world: World, start:Point, end:Point, directions:List) -> List:
         layer[voda.x][voda.y] = 0
     
     q = deque([start, []])
-    visited = set(start)
+    visited = set([start])
 
     if start == end:
         return []
@@ -36,13 +36,13 @@ def getCut(board: Tensor, position: Point, vision: int) -> Tensor:
 
     x, y = position.x, position.y
 
-    start_x = max(0, x-vision)
-    start_y = max(0, y-vision)
+    start_x = x-vision
+    start_y = y-vision
 
     _, h, w = board.shape
 
-    end_x = min(start_x + vision*2, h)
-    end_y = min(start_y + vision*2, w)
+    end_x = min(start_x + vision*2+1, h)
+    end_y = min(start_y + vision*2+1, w)
 
     return board[:, start_x:end_x, start_y:end_y]
 
@@ -61,11 +61,11 @@ def getBoard(world: World) -> Tensor:
 
         return board
 
-def boardSurface(world:World) -> List:
+def boardSurface(world:World, vision:int) -> List:
     width, height = world.map.width, world.map.height
-    layer = [[1 for i in range(width)] for j in range(height)]
+    layer = [[1 for i in range(width+vision*2)] for j in range(height+vision*2)]
     for voda in world.map.water_tiles:
-        layer[voda.x][voda.y] = 0
+        layer[voda.y][voda.x] = 0
     return layer
 
 def boardEnemies(world:World) -> List:
@@ -74,7 +74,7 @@ def boardEnemies(world:World) -> List:
     for id, duch in world.alive_shades.items():
         if duch.owner != world.my_id:
             duchpos = duch.position
-            layer[duchpos.x][duchpos.y] = 1
+            layer[duchpos.y][duchpos.x] = 1
     return layer
 
 def boardFriends(world:World) -> List:
@@ -83,7 +83,7 @@ def boardFriends(world:World) -> List:
     for id, duch in world.alive_shades.items():
         if duch.owner == world.my_id:
             duchpos = duch.position
-            layer[duchpos.x][duchpos.y] = 1
+            layer[duchpos.y][duchpos.x] = 1
     return layer
 
 def boardHomes(world:World) -> List:
@@ -92,7 +92,7 @@ def boardHomes(world:World) -> List:
     for home in world.alive_tombstones:
         if home.owner == world.my_id:
             homepos = home.position
-            layer[homepos.x][homepos.y] = 1
+            layer[homepos.y][homepos.x] = 1
     return layer
 
 def boardEnemyHomes(world:World) -> List:
@@ -101,7 +101,7 @@ def boardEnemyHomes(world:World) -> List:
     for home in world.alive_tombstones:
         if home.owner != world.my_id:
             homepos = home.position
-            layer[homepos.x][homepos.y] = 1
+            layer[homepos.y][homepos.x] = 1
     return layer
             
 def boardPeople(world:World) -> List:
@@ -109,7 +109,7 @@ def boardPeople(world:World) -> List:
     layer = [[0 for i in range(width)] for j in range(height)]
     for person in world.alive_people:
         personpos = person.position
-        layer[personpos.x][personpos.y] = 1
+        layer[personpos.y][personpos.x] = 1
     return layer
 
 
@@ -160,7 +160,12 @@ class Player(PlayerInterface):
         
 
     def get_turn(self, world: World) -> List[Move]:
+        fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        Player.log(getCut(fullboard, Point(10, 10), 5))
+        Player.log("toto je pravy horny roh", getCut(fullboard, Point(0, 0), 5))
         if self.train_mode: return self.get_turn_train(world)
+        fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        self.log(getCut(fullboard, Point(10, 10)), 11)
 
         moves = []
         for id, ant in world.alive_shades.items():
@@ -175,6 +180,10 @@ class Player(PlayerInterface):
     def get_turn_train(self, world: World) -> List[Move]:
         self.interval_counter += 1
 
+        fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        self.log(getCut(fullboard, Point(10, 10), 11))
+
+
         moves = []
         for id, ant in world.alive_shades.items():
             
@@ -184,7 +193,7 @@ class Player(PlayerInterface):
 
             fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
 
-            self.log(getCut(fullboard, Point(10, 10)), 11)
+            self.log(getCut(fullboard, Point(10, 10), 11))
 
             
             # HLADIK TU DOPLN VECI KTORE RATAS
@@ -237,13 +246,16 @@ class Player(PlayerInterface):
         shade_diff = self.shades_cnt(world) - self.lt_alive
         tom_diff = self.tom_cnt(world) - self.lt_tomstones
         
-        dies = 0
+        for id, ant in world.alive_shades.items():
 
-        # TODO Zratat killy
-        kills = 0
-        if ghost.will_i_die(self.shade_positions): dies = 1
 
-        return shade_diff + tom_diff*10 - dies*10 + kills*10
+            # HLADIK TU DOPLN VECI KTORE RATAS
+            self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
+            self.memory["extra"][id].append(extra)  #toto chcu byt tie features
+            self.memory["actions"][id].append(action.item())
+            self.memory["log_probs"][id].append(log_prob.item())
+            self.memory["rewards"][id].append(reward)
+            self.memory["dones"][id].append(done)
 
     def setzeromem(self, ghost: ShadeID):
         self.memory["board"][ghost] = []

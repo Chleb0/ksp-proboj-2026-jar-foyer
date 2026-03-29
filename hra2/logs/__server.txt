@@ -1,5 +1,8 @@
 STARTING TURN: 0
-Game end: Last player alive
+Killing player py: Failed to read turn data.
+Could not kill player py
+Player py has been killed
+Game end: No players left
 Sending scores
 [proboj] process terminated
  exit: 1
