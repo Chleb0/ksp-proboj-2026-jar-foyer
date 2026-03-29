@@ -1,8 +1,110 @@
-Max food count is: 1
-Player windows failed to initialize
-Player windows has been killed
+Max food count is: 4
 STARTING TURN: 0
-Game end: No players left
+STARTING TURN: 1
+Ant 1 tried to move to an invalid position
+STARTING TURN: 2
+Ant 3 tried to move to an invalid position
+STARTING TURN: 3
+STARTING TURN: 4
+STARTING TURN: 5
+STARTING TURN: 6
+Ant 3 tried to move to an invalid position
+STARTING TURN: 7
+STARTING TURN: 8
+STARTING TURN: 9
+Ant 4 tried to move to an invalid position
+STARTING TURN: 10
+Ant 1 tried to move to an invalid position
+STARTING TURN: 11
+STARTING TURN: 12
+STARTING TURN: 13
+STARTING TURN: 14
+STARTING TURN: 15
+STARTING TURN: 16
+Ant 3 tried to move to an invalid position
+STARTING TURN: 17
+STARTING TURN: 18
+Ant 5 tried to move to an invalid position
+STARTING TURN: 19
+STARTING TURN: 20
+Ant 1 tried to move to an invalid position
+STARTING TURN: 21
+Ant 5 tried to move to an invalid position
+STARTING TURN: 22
+Ant 5 tried to move to an invalid position
+STARTING TURN: 23
+Ant 2 tried to move to an invalid position
+STARTING TURN: 24
+Ant 2 tried to move to an invalid position
+STARTING TURN: 25
+Ant 1 tried to move to an invalid position
+Ant 3 tried to move to an invalid position
+STARTING TURN: 26
+Ant 4 tried to move to an invalid position
+STARTING TURN: 27
+Ant 2 tried to move to an invalid position
+Ant 4 tried to move to an invalid position
+STARTING TURN: 28
+STARTING TURN: 29
+Ant 5 tried to move to an invalid position
+STARTING TURN: 30
+Ant 1 tried to move to an invalid position
+STARTING TURN: 31
+Ant 2 tried to move to an invalid position
+STARTING TURN: 32
+STARTING TURN: 33
+STARTING TURN: 34
+STARTING TURN: 35
+STARTING TURN: 36
+Ant 2 tried to move to an invalid position
+STARTING TURN: 37
+STARTING TURN: 38
+Ant 3 tried to move to an invalid position
+STARTING TURN: 39
+Ant 2 tried to move to an invalid position
+STARTING TURN: 40
+STARTING TURN: 41
+Ant 6 tried to move to an invalid position
+STARTING TURN: 42
+STARTING TURN: 43
+STARTING TURN: 44
+STARTING TURN: 45
+STARTING TURN: 46
+STARTING TURN: 47
+STARTING TURN: 48
+STARTING TURN: 49
+STARTING TURN: 50
+STARTING TURN: 51
+STARTING TURN: 52
+STARTING TURN: 53
+STARTING TURN: 54
+STARTING TURN: 55
+STARTING TURN: 56
+STARTING TURN: 57
+STARTING TURN: 58
+STARTING TURN: 59
+Ant 3 tried to move to an invalid position
+STARTING TURN: 60
+Ant 3 tried to move to an invalid position
+STARTING TURN: 61
+STARTING TURN: 62
+STARTING TURN: 63
+Ant 9 tried to move to an invalid position
+STARTING TURN: 64
+Ant 9 tried to move to an invalid position
+STARTING TURN: 65
+Ant 9 tried to move to an invalid position
+STARTING TURN: 66
+Ant 9 tried to move to an invalid position
+STARTING TURN: 67
+STARTING TURN: 68
+STARTING TURN: 69
+STARTING TURN: 70
+STARTING TURN: 71
+STARTING TURN: 72
+Player sebko1 has not enough resources to continue playing
+Player sebko1 has been killed
+Game end: Last player alive
 Sending scores
 [proboj] process terminated
  exit: 1

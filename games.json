@@ -2,15 +2,8 @@
   {
     "gamefolder": "hra",
     "players": [
-      "windows"
-    ],
-    "args": "../maps/maze.ppm"
-  },
-
-  {
-    "gamefolder": "hra2",
-    "players": [
-      "py"
+      "sebko1",
+      "sebko2"
     ],
     "args": "../maps/maze.ppm"
   }

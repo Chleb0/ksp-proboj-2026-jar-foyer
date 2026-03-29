@@ -30,7 +30,7 @@ class PPOActorCritic(nn.Module):
 
         # Compute CNN output size dynamically
         with torch.no_grad():
-            dummy: Tensor = torch.zeros(1, input_channels, 84, 84)
+            dummy: Tensor = torch.zeros(1, input_channels, 11, 11)
             cnn_out_dim: int = self.cnn(dummy).shape[1]
 
         # Extra input branch
@@ -50,9 +50,11 @@ class PPOActorCritic(nn.Module):
         self.critic: nn.Linear = nn.Linear(256, 1)
 
     def forward(self, img: Tensor, extra: Tensor) -> Tuple[Tensor, Tensor]:
+        extra = extra.unsqueeze(0)
+        img = img.unsqueeze(0)
         cnn_features: Tensor = self.cnn(img)
         extra_features: Tensor = self.extra_fc(extra)
-
+        
         combined: Tensor = torch.cat([cnn_features, extra_features], dim=1)
         hidden: Tensor = self.combined_fc(combined)
 
