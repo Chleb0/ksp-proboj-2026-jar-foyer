@@ -102,7 +102,7 @@ def boardSurface(world:World, vision:int) -> List:
                 layer[y][x] = 0
             if x >= width+vision or y >= width+vision:
                 layer[y][x] = 0
-    shitfpoint = Point(-vision, -vision)
+    shitfpoint = Point(-vision-5, -vision-5)
     for voda in world.map.water_tiles:
         boardposition = voda+shitfpoint
         layer[boardposition.y][boardposition.x] = 0
@@ -193,7 +193,7 @@ class Player(PlayerInterface):
         actor_model : PPOActorCritic = PPOActorCritic(INPUT_CHANNELS, EXTRA_STAT, OUTPUT_CHANNELS)
         self.model = PPO(actor_model)
 
-        load_checkpoint(self.model, os.path.dirname(os.path.abspath(__file__)) + "/backup.tmp")
+        # load_checkpoint(self.model, os.path.dirname(os.path.abspath(__file__)) + "/backup.tmp")
         pass
 
     def preprocess(self, world: World):
