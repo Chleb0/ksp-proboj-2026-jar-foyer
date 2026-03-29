@@ -1,434 +1,1511 @@
 [proboj] 
-Som boh blesku a sex appealu. -idk asi Zeus
 [proboj] 
 STARTING TURN: 0
-tensor([[[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False,  True,  True,  True,  True,  True, False, False, False, False,
-          False],
-         [False,  True,  True,  True,  True,  True, False, False, False, False,
-          False],
-         [False,  True,  True,  True,  True,  True, False, False, False, False,
-          False],
-         [ True,  True,  True,  True, False, False, False, False, False, False,
-          False],
-         [ True,  True,  True,  True, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+[proboj] 
+STARTING TURN: 1
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False,  True, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+[proboj] 
+STARTING TURN: 2
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False,  True, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+[proboj] 
+STARTING TURN: 3
+Tu som kokotko
+Tu som kokotko
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+[proboj] 
+STARTING TURN: 4
+Tu som kokotko
+Tu som kokotko
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]]])
-{Tombstone(position=Point(x=1, y=1), owner=1, id=1), Tombstone(position=Point(x=1, y=16), owner=2, id=3), Tombstone(position=Point(x=18, y=16), owner=1, id=2), Tombstone(position=Point(x=18, y=1), owner=2, id=4)}
-toto je pravy horny roh
-{Point(x=1, y=1): Shade(position=Point(x=1, y=1), owner=1, id=1, just_spawned=True), Point(x=18, y=16): Shade(position=Point(x=18, y=16), owner=1, id=2, just_spawned=True), Point(x=1, y=16): Shade(position=Point(x=1, y=16), owner=2, id=3, just_spawned=True), Point(x=18, y=1): Shade(position=Point(x=18, y=1), owner=2, id=4, just_spawned=True)}
-tensor([[[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False,  True,  True,  True,  True,  True,
-          False],
-         [False, False, False, False, False,  True,  True,  True,  True,  True,
-          False],
-         [False, False, False, False, False,  True,  True,  True,  True,  True,
-          False],
-         [False, False, False, False, False,  True,  True,  True,  True,  True,
-          False],
-         [False, False, False, False, False,  True,  True, False, False, False,
-          False],
-         [False, False, False, False, False,  True,  True,  True,  True,  True,
-           True]],
+[proboj] 
+STARTING TURN: 5
+Tu som kokotko
+Tu som kokotko
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+[proboj] 
+STARTING TURN: 6
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False,  True, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+[proboj] 
+STARTING TURN: 7
+Tu som kokotko
+Tu som kokotko
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False,  True, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+[proboj] 
+STARTING TURN: 8
+Tu som kokotko
+Tu som kokotko
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+[proboj] 
+STARTING TURN: 9
+Tu som kokotko
+Tu som kokotko
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]]])
-tensor([[[ True,  True,  True, False,  True,  True, False,  True,  True,  True,
-           True],
-         [ True,  True,  True, False,  True,  True, False,  True,  True,  True,
-           True],
-         [False, False, False, False,  True,  True, False, False, False, False,
-          False],
-         [ True,  True,  True,  True,  True,  True,  True,  True,  True,  True,
-           True],
-         [ True,  True,  True,  True,  True,  True,  True,  True,  True,  True,
-           True],
-         [ True,  True,  True,  True,  True,  True,  True,  True,  True,  True,
-           True],
-         [ True,  True, False,  True,  True,  True,  True, False,  True,  True,
-           True],
-         [ True,  True, False,  True,  True,  True,  True, False,  True,  True,
-           True],
-         [ True,  True, False,  True,  True,  True,  True, False,  True,  True,
-           True],
-         [False, False, False,  True,  True,  True,  True, False, False, False,
-          False],
-         [False,  True,  True,  True,  True,  True,  True,  True,  True, False,
-           True]],
+[proboj] 
+STARTING TURN: 10
+Tu som kokotko
+Tu som kokotko
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+[proboj] 
+STARTING TURN: 11
+Tu som kokotko
+Tu som kokotko
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+[proboj] 
+STARTING TURN: 12
+Tu som kokotko
+Tu som kokotko
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+[proboj] 
+STARTING TURN: 13
+Tu som kokotko
+Tu som kokotko
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]],
+[proboj] 
+STARTING TURN: 14
+Tu som kokotko
+Tu som kokotko
 
-        [[False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False],
-         [False, False, False, False, False, False, False, False, False, False,
-          False]]])
-Traceback (most recent call last):
-  File "C:\Users\jakub\Desktop\Programovanie\KSP\Proboj\Duch\ksp-proboj-2026-jar-foyer\players\python\player.py", line 332, in <module>
-    game.run()
-  File "C:\Users\jakub\Desktop\Programovanie\KSP\Proboj\Duch\ksp-proboj-2026-jar-foyer\players\python\game.py", line 35, in run
-    send_moves(self.player.get_turn(self.world))
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\jakub\Desktop\Programovanie\KSP\Proboj\Duch\ksp-proboj-2026-jar-foyer\players\python\player.py", line 200, in get_turn
-    if self.train_mode: return self.get_turn_train(world)
-                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\jakub\Desktop\Programovanie\KSP\Proboj\Duch\ksp-proboj-2026-jar-foyer\players\python\player.py", line 229, in get_turn_train
-    if len(self.memory["board"][id]) != 0: self.memory["rewards"][id][-1] = reward
-           ^^^^^^^^^^^
-AttributeError: 'Player' object has no attribute 'memory'
+[proboj] 
+STARTING TURN: 15
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 16
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 17
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 18
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 19
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 20
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 21
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 22
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 23
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 24
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 25
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 26
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 27
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 28
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 29
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 30
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 31
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 32
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 33
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 34
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 35
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 36
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 37
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 38
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 39
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 40
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 41
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 42
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 43
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 44
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 45
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 46
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 47
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 48
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 49
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 50
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 51
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 52
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 53
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 54
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 55
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 56
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 57
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 58
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 59
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 60
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 61
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 62
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 63
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 64
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 65
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 66
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 67
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 68
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 69
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 70
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 71
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 72
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 73
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 74
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 75
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 76
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 77
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 78
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 79
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 80
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 81
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 82
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 83
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 84
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 85
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 86
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 87
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 88
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 89
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 90
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 91
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 92
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 93
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 94
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 95
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 96
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 97
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 98
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 99
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 100
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 101
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 102
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 103
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 104
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 105
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 106
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 107
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 108
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 109
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 110
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 111
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 112
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 113
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 114
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 115
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 116
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 117
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 118
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 119
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 120
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 121
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 122
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 123
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 124
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 125
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 126
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 127
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 128
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 129
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 130
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 131
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 132
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 133
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 134
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 135
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 136
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 137
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 138
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 139
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 140
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 141
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 142
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 143
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 144
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 145
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 146
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 147
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 148
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 149
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 150
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 151
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 152
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 153
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 154
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 155
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 156
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 157
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 158
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 159
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 160
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 161
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 162
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 163
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 164
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 165
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 166
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 167
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 168
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 169
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 170
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 171
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 172
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 173
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 174
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 175
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 176
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 177
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 178
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 179
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 180
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 181
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 182
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 183
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 184
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 185
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 186
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 187
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 188
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 189
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 190
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 191
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 192
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 193
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 194
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 195
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 196
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 197
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 198
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 199
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 200
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 201
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 202
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 203
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 204
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 205
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 206
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 207
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 208
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 209
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 210
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 211
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 212
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 213
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 214
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 215
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 216
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 217
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 218
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 219
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 220
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 221
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 222
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 223
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 224
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 225
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 226
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 227
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 228
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 229
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 230
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 231
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 232
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 233
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 234
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 235
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 236
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 237
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 238
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 239
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 240
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 241
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 242
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 243
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 244
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 245
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 246
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 247
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 248
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 249
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 250
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 251
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 252
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 253
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 254
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 255
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 256
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 257
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 258
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 259
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 260
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 261
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 262
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 263
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 264
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 265
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 266
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 267
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 268
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 269
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 270
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 271
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 272
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 273
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 274
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 275
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 276
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 277
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 278
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 279
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 280
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 281
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 282
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 283
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 284
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 285
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 286
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 287
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 288
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 289
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 290
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 291
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 292
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 293
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 294
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 295
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 296
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 297
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 298
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 299
+Tu som kokotko
+Tu som kokotko
+
 [proboj] process terminated
  exit: 1
  err: <nil>

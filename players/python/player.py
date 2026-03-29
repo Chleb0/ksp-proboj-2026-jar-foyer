@@ -8,7 +8,17 @@ from random import shuffle
 from model import *
 import torch
 
+def killsAroundMe(shade: Shade, shade_positions: Dict[Point, Shade]):
+    killcount = 0
 
+    mojstrach = shade.get_fear()
+    enemyfear = shade.get_enemy_fears(shade_positions)
+    for shade, fear in enemyfear.items():
+        if fear >= mojstrach:
+            killcount += 1
+
+    return killcount
+        
 
 def add_to_queue(visited: dict[Point, Point], q: List[Point], frm: Point, world : World):
     move_def : dict = {
