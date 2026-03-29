@@ -10,7 +10,7 @@ from data import ShadeID
 import os
 
 class PPOMemory(TypedDict):
-    board: Dict[ShadeID, List[Tensor]]
+    board: dict[ShadeID, List[Tensor]]
     extra: Dict[ShadeID, List[Tensor]]
     actions: Dict[ShadeID, List[int]]
     log_probs: Dict[ShadeID, List[float]]

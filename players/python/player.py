@@ -132,9 +132,6 @@ class Player(PlayerInterface):
     def init(self, world: World) -> None:
         Player.log("Som boh blesku a sex appealu. -idk asi Zeus")
         pass
-
-    def backup_mem(self) -> None:
-        torch.save(self.memory, "memory.pt")
     
     def load_memory(self) -> None:
         try:
@@ -171,9 +168,13 @@ class Player(PlayerInterface):
         for id, ant in world.alive_shades.items():
             
             board : Tensor
+            reward: float = self.eval_last_move(world, ant)
+            if len(self.memory["board"][id]) != 0: self.memory["rewards"][id][-1] = reward
+
             fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
 
             self.log(getCut(fullboard, Point(10, 10)), 11)
+
             
             # HLADIK TU DOPLN VECI KTORE RATAS
             self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
@@ -187,7 +188,7 @@ class Player(PlayerInterface):
             self.memory["extra"][id].append(extra)  #toto chcu byt tie features
             self.memory["actions"][id].append(action.item())
             self.memory["log_probs"][id].append(log_prob.item())
-            self.memory["rewards"][id].append(reward)
+            self.memory["rewards"][id].append(0.0)
             self.memory["dones"][id].append(done)
 
             self.update_lt(world)
@@ -221,20 +222,17 @@ class Player(PlayerInterface):
                 out += 1
         return out
 
-    def eval_last_move(self, world: World):
+    def eval_last_move(self, world: World, ghost: Shade) -> float:
         shade_diff = self.shades_cnt(world) - self.lt_alive
         tom_diff = self.tom_cnt(world) - self.lt_tomstones
         
-        for id, ant in world.alive_shades.items():
-            c
+        dies = 0
 
-            # HLADIK TU DOPLN VECI KTORE RATAS
-            self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
-            self.memory["extra"][id].append(extra)  #toto chcu byt tie features
-            self.memory["actions"][id].append(action.item())
-            self.memory["log_probs"][id].append(log_prob.item())
-            self.memory["rewards"][id].append(reward)
-            self.memory["dones"][id].append(done)
+        # TODO Zratat killy
+        kills = 0
+        if ghost.will_i_die(self.shade_positions): dies = 1
+
+        return shade_diff + tom_diff*10 - dies*10 + kills*10
 
     def setzeromem(self, ghost: ShadeID):
         self.memory["board"][ghost] = []
