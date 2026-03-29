@@ -153,7 +153,7 @@ INPUT_CHANNELS = 6
 OUTPUT_CHANNELS = 5
 EXTRA_STAT = 1
 VISION = 5
-BACKUP_PATH = os.path.dirname(os.path.abspath(__file__)) + "/"
+BACKUP_PATH = os.path.dirname(os.path.abspath(__file__))
 
 class Player(PlayerInterface):
     memory: PPOMemory
