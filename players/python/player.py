@@ -59,7 +59,7 @@ def boardSurface(world:World) -> List:
 def boardEnemies(world:World) -> List:
     width, height = world.map.width, world.map.height
     layer = [[0 for i in range(width)] for j in range(height)]
-    for duch in world.alive_shades:
+    for id, duch in world.alive_shades.items():
         if duch.id != world.my_id:
             layer[duch.x][duch.y] = 1
 
