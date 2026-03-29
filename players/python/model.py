@@ -6,7 +6,15 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch import Tensor
 from torch.distributions import Categorical
+from data import ShadeID
 
+class PPOMemory(TypedDict):
+    board: Dict[ShadeID, List[Tensor]]
+    extra: Dict[ShadeID, List[Tensor]]
+    actions: Dict[ShadeID, List[int]]
+    log_probs: Dict[ShadeID, List[float]]
+    rewards: Dict[ShadeID, List[float]]
+    dones: Dict[ShadeID, List[bool]]
 
 class PPOActorCritic(nn.Module):
     def __init__(self, input_channels: int, extra_input_dim: int, action_dim: int) -> None:
@@ -111,22 +119,22 @@ class PPO:
 
         return torch.tensor(returns, dtype=torch.float32)
 
-    def update(self, memory: Dict[str, List]) -> None:
-        imgs: Tensor = torch.stack(memory['img'])
-        extras: Tensor = torch.stack(memory['extra'])
-        actions: Tensor = torch.tensor(memory['actions'])
-        old_log_probs: Tensor = torch.tensor(memory['log_probs'])
-        rewards: List[float] = memory['rewards']
-        dones: List[bool] = memory['dones']
+    def update(self, memory: PPOMemory, ghost: ShadeID) -> None:
+        boards: Tensor = torch.stack(memory['board'][ghost])
+        extras: Tensor = torch.stack(memory['extra'][ghost])
+        actions: Tensor = torch.tensor(memory['actions'][ghost])
+        old_log_probs: Tensor = torch.tensor(memory['log_probs'][ghost])
+        rewards: List[float] = memory['rewards'][ghost]
+        dones: List[bool] = memory['dones'][ghost]
 
         with torch.no_grad():
-            _, values = self.model(imgs, extras)
+            _, values = self.model(boards, extras)
 
         returns: Tensor = self.compute_returns(rewards, dones, values)
         advantages: Tensor = returns - values.squeeze()
 
         for _ in range(self.k_epochs):
-            log_probs, entropy, values = self.model.evaluate(imgs, extras, actions)
+            log_probs, entropy, values = self.model.evaluate(boards, extras, actions)
 
             ratios: Tensor = torch.exp(log_probs - old_log_probs)
 
@@ -146,10 +154,3 @@ class PPO:
             loss.backward()
             self.optimizer.step()
 
-class PPOMemory(TypedDict):
-    board: List[Tensor]
-    extra: List[Tensor]
-    actions: List[int]
-    log_probs: List[float]
-    rewards: List[float]
-    dones: List[bool]
