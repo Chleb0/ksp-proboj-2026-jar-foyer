@@ -32,7 +32,19 @@ def bfs(world: World, start:Point, end:Point, directions:List) -> List:
 
 
 
-        
+def getCut(board, position, vision):
+
+    x, y = position.x, position.y
+
+    start_x = max(0, x-vision)
+    start_y = max(0, y-vision)
+
+    _, h, w = board.shape
+
+    end_x = min(start_x + vision*2, h)
+    end_y = min(start_y + vision*2, w)
+
+    return board[:, start_x:end_x, start_y:end_y]
 
 
 
