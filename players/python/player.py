@@ -124,6 +124,7 @@ class Player(PlayerInterface):
     def train_one_ghost(self, ghost: ShadeID):
         self.model.update(self.memory, ghost)
         self.setzeromem(ghost)
+        save_checkpoint(self.model, os.path.dirname(os.path.abspath(__file__)) + "/")
 
     def check_ghost_memory(self, ghost: ShadeID, world: World):
         if ghost not in self.memory["board"]:
