@@ -1,6 +1,6 @@
 #!/bin/env python
 import sys
-from typing import List
+from typing import List, Set
 from data import World, Move, Person, World, Map, Shade, Tombstone, Point
 from collections import deque
 from game import Game, PlayerInterface
@@ -30,7 +30,39 @@ def bfs(world: World, start:Point, end:Point, directions:List) -> List:
             if neighbour == end:
                 endnotfound = True
 
+def add_to_queue(visited: dict[Point, Point], q: List[Point], frm: Point):
+    move_def : dict = {
+                1 : Point(0,1),
+                2 : Point(1,0),
+                3 : Point(0,-1),
+                4 : Point(-1,0)
+            }
 
+    for _, move in move_def:
+        to = frm + move
+        if to not in visited:
+            visited[to] = frm
+            q.append(to)
+
+def bfs_find_person(world: World, start: Point, pipel: dict[Point, Person]) -> Point:
+    came_from : dict[Point, Point] = {}
+    came_from[start] = start
+
+    queue : List[Point] = []
+    add_to_queue(came_from, queue, start) 
+
+    q_ind: int = 0
+    end : Point = start
+    while(True):
+        pnt: Point = queue[q_ind]
+        if pnt in pipel:
+            end = pnt
+            break
+
+    while(True):
+        predecessor = came_from[end]
+        if predecessor == start:
+            return end
 
 def getCut(board: Tensor, position: Point, vision: int) -> Tensor:
 
@@ -148,7 +180,8 @@ class Player(PlayerInterface):
     lt_alive: int = 0
     lt_tomstones: int = 0
 
-    shade_positions: Dict[Point, Shade] = {}
+    shade_positions: dict[Point, Shade] = {}
+    people_positions: dict[Point, Person] = {}
 
     @staticmethod
     def log(*args):
@@ -162,6 +195,15 @@ class Player(PlayerInterface):
 
         # load_checkpoint(self.model, os.path.dirname(os.path.abspath(__file__)) + "/backup.tmp")
         pass
+
+    def preprocess(self, world: World):
+        self.people_positions = {}
+        self.shade_positions = {}
+        for person in world.alive_people:
+            self.people_positions[person.position] = person
+        
+        for _, ghost in world.alive_shades.items():
+            self.shade_positions[ghost.position] = ghost
 
     def get_turn(self, world: World) -> List[Move]:
         fullboard = getBoard(world, 11)  #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
@@ -188,7 +230,7 @@ class Player(PlayerInterface):
         self.log(getCut(fullboard, Point(10, 10), VISION))
 
 
-        moves = []
+        moves : List[Move] = []
         shade_diff = self.shades_cnt(world) - self.lt_alive
         tom_diff = self.tom_cnt(world) - self.lt_tomstones
 
@@ -206,6 +248,8 @@ class Player(PlayerInterface):
             action, log_prob, _ = self.model.model.get_action(board, extra)
             volba = int(action.item())
 
+            die = ant.will_i_die(self.shade_positions)
+
             # HLADIK TU DOPLN VECI KTORE RATAS
             self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
                                                 # water/ground - 0/1
@@ -218,8 +262,8 @@ class Player(PlayerInterface):
             self.memory["extra"][id].append(extra)  #toto chcu byt tie features
             self.memory["actions"][id].append(int(action.item()))
             self.memory["log_probs"][id].append(log_prob.item())
-            self.memory["rewards"][id].append(0.0)
-            self.memory["dones"][id].append(ant.will_i_die(self.shade_positions))
+            self.memory["rewards"][id].append(-100.0 if die else 0.0)
+            self.memory["dones"][id].append(die)
 
             self.update_lt(world)
 
@@ -233,6 +277,18 @@ class Player(PlayerInterface):
             4 - dolava
             5 - za clovekom
             """
+
+            move_def : dict = {
+                1 : Point(0,1),
+                2 : Point(1,0),
+                3 : Point(0,-1),
+                4 : Point(-1,0)
+            }
+
+            if volba < 5:
+                moves.append(Move(id, ant.position + move_def[volba]))
+            else:
+                moves.append(Move(id, bfs_find_person(world, ant.position, self.people_positions)))
 
             #nech sa rozhodne medzi
             # chod k clovekovi najblizsiemu
@@ -283,11 +339,6 @@ class Player(PlayerInterface):
         else:
             if len(self.memory["board"][ghost]) >= self.training_interval or world.alive_shades[ghost].will_i_die(self.shade_positions):
                 self.model.update(self.memory, ghost)
-                
-
-    def eval_ghost_turn(self, shade: Shade, world: World) -> float:
-        pass
-        
 
 if __name__ == "__main__":
     game = Game(Player())
