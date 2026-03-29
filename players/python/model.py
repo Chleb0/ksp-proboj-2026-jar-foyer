@@ -159,7 +159,7 @@ def save_checkpoint(
     ppo: PPO,
     file_path: str
 ) -> None:
-    temp_path = file_path + "model.tmp"
+    temp_path = file_path
 
     checkpoint = {
         "model_state_dict": ppo.model.state_dict(),

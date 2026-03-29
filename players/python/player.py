@@ -113,6 +113,11 @@ def boardPeople(world:World) -> List:
     return layer
 
 
+INPUT_CHANNELS = 5
+OUTPUT_CHANNELS = 5
+EXTRA_STAT = 1
+BACKUP_PATH = os.path.dirname(os.path.abspath(__file__)) + "/"
+
 class Player(PlayerInterface):
     memory: PPOMemory
     model: PPO
@@ -131,6 +136,12 @@ class Player(PlayerInterface):
 
     def init(self, world: World) -> None:
         Player.log("Som boh blesku a sex appealu. -idk asi Zeus")
+
+        
+        actor_model : PPOActorCritic = PPOActorCritic(INPUT_CHANNELS, EXTRA_STAT, OUTPUT_CHANNELS)
+        self.model = PPO(actor_model)
+
+        load_checkpoint(self.model, os.path.dirname(os.path.abspath(__file__)) + "/backup.tmp")
         pass
     
     def load_memory(self) -> None:
@@ -245,7 +256,7 @@ class Player(PlayerInterface):
     def train_one_ghost(self, ghost: ShadeID):
         self.model.update(self.memory, ghost)
         self.setzeromem(ghost)
-        save_checkpoint(self.model, os.path.dirname(os.path.abspath(__file__)) + "/")
+        save_checkpoint(self.model, BACKUP_PATH)
 
     def check_ghost_memory(self, ghost: ShadeID, world: World):
         if ghost not in self.memory["board"]:
