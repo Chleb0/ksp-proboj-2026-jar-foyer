@@ -143,12 +143,12 @@ INPUT_CHANNELS = 5
 OUTPUT_CHANNELS = 5
 EXTRA_STAT = 1
 VISION = 5
-BACKUP_PATH = os.path.dirname(os.path.abspath(__file__)) + "/"
+BACKUP_PATH = os.path.dirname(os.path.abspath(__file__))
 
 class Player(PlayerInterface):
     memory: PPOMemory
     model: PPO
-    train_mode: bool = False
+    train_mode: bool = True
     training_interval: int = 50
 
     lt_alive: int = 0
