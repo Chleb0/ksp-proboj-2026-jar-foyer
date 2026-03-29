@@ -11,7 +11,7 @@ import torch
 def killsAroundMe(shade: Shade, shade_positions: Dict[Point, Shade]):
     killcount = 0
 
-    mojstrach = shade.get_fear()
+    mojstrach = shade.get_fear(shade_positions)
     enemyfear = shade.get_enemy_fears(shade_positions)
     for shade, fear in enemyfear.items():
         if fear >= mojstrach:
@@ -342,7 +342,7 @@ class Player(PlayerInterface):
         return out
 
     def eval_last_move(self, world: World, ghost: Shade, shade_diff: int, tom_diff: int) -> float:
-        kills = 0
+        kills = killsAroundMe(ghost, self.shade_positions)
         return kills * 10  + shade_diff + tom_diff*250
 
     def setzeromem(self, ghost: ShadeID):
