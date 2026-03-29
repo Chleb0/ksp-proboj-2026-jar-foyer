@@ -304,6 +304,8 @@ class Player(PlayerInterface):
                 3 : Point(-1,0)
             }
 
+
+            
             self.log("Tu som kokotko")
             if volba < 4:
                 moves.append(Move(id, ant.position + move_def[volba]))
