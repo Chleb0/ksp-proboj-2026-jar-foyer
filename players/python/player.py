@@ -2,10 +2,99 @@
 import sys
 from typing import List
 from data import World, Move, Person, World, Map, Shade, Tombstone, Point
+from collections import deque
 from game import Game, PlayerInterface
 from random import shuffle
 from model import *
 import torch
+
+def bfs(world: World, start:Point, end:Point, directions:List) -> List:
+    width, height = world.map.width, world.map.height
+    layer = [[1 for i in range(width)] for j in range(height)]
+    for voda in world.map.water_tiles:
+        layer[voda.x][voda.y] = 0
+    
+    q = deque([start, []])
+    visited = set(start)
+
+    if start == end:
+        return []
+    
+    endnotfound = False
+
+    while endnotfound == False:
+        new = q.popleft()
+        neighbours = new.get_neighbouring()
+        for neighbour in neighbours:
+            
+            if neighbour == end:
+                endnotfound = True
+
+
+
+        
+
+
+
+def getBoard(world: World) -> Tensor:
+
+        Surface = torch.tensor(boardSurface(world), dtype=torch.bool)
+        Enemies = torch.tensor(boardEnemies(world), dtype=torch.bool)
+        Friends = torch.tensor(boardFriends(world), dtype=torch.bool)
+        Homes = torch.tensor(boardHomes(world), dtype=torch.bool)
+        EnemyHomes = torch.tensor(boardEnemyHomes(world), dtype=torch.bool)
+        People = torch.tensor(boardPeople(world), dtype=torch.bool)
+        
+        board = torch.stack([Surface, Enemies, Friends, Homes, EnemyHomes, People])
+
+        return board
+
+def boardSurface(world:World) -> List:
+    width, height = world.map.width, world.map.height
+    layer = [[1 for i in range(width)] for j in range(height)]
+    for voda in world.map.water_tiles:
+        layer[voda.x][voda.y] = 0
+    return layer
+
+def boardEnemies(world:World) -> List:
+    width, height = world.map.width, world.map.height
+    layer = [[0 for i in range(width)] for j in range(height)]
+    for duch in world.alive_shades:
+        if duch.id != world.my_id:
+            layer[duch.x][duch.y] = 1
+
+def boardFriends(world:World) -> List:
+    width, height = world.map.width, world.map.height
+    layer = [[0 for i in range(width)] for j in range(height)]
+    for duch in world.alive_shades:
+        if duch.id == world.my_id:
+            layer[duch.x][duch.y] = 1
+
+def boardHomes(world:World) -> List:
+    width, height = world.map.width, world.map.height
+    layer = [[0 for i in range(width)] for j in range(height)]
+    for home in world.alive_tombstones:
+        if home.id == world.my_id:
+            layer[home.x][home.y] = 1
+
+def boardEnemyHomes(world:World) -> List:
+    width, height = world.map.width, world.map.height
+    layer = [[0 for i in range(width)] for j in range(height)]
+    for home in world.alive_tombstones:
+        if home.id != world.my_id:
+            layer[home.x][home.y] = 1
+            
+def boardPeople(world:World) -> List:
+    width, height = world.map.width, world.map.height
+    layer = [[0 for i in range(width)] for j in range(height)]
+    for person in world.alive_people:
+        layer[person.x][person.y] = 1
+
+
+def makeMove():
+    
+
+
 
 class Player(PlayerInterface):
     memory: PPOMemory
@@ -38,9 +127,6 @@ class Player(PlayerInterface):
                 "rewards": [],
                 "dones": []
             }
-
-    def generate_layers(self, world: World, point: Point, vision: int) -> List:
-        topright = (point.x-vision, point.y-vision)
         
 
     def get_turn(self, world: World) -> List[Move]:
@@ -60,9 +146,18 @@ class Player(PlayerInterface):
         moves = []
         for id, ant in world.alive_shades.items():
             
+            board : Tensor
+            fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
             
             # HLADIK TU DOPLN VECI KTORE RATAS
             self.memory["board"].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
+                                                # water/ground - 0/1
+                                                # enemy/nie
+                                                # friend/nie
+                                                # nic/svojahrobka
+                                                # nic/enem hrobka 0/1
+                                                # nic/ clovek
+
             self.memory["extra"].append(extra)  #toto chcu byt tie features
             self.memory["actions"].append(action.item())
             self.memory["log_probs"].append(log_prob.item())
@@ -70,6 +165,14 @@ class Player(PlayerInterface):
             self.memory["dones"].append(done)
 
             self.update_lt(world)
+
+            akcia: List
+
+            #action je jeden boolean set na true vo vektore velkosti 5
+
+            #nech sa rozhodne medzi
+            # chod k clovekovi najblizsiemu
+            # chod niekam smer
 
         return moves
 
