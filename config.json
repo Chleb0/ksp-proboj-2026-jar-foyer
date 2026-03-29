@@ -4,7 +4,7 @@
   "players": {
 
     "py": {
-      "command": "C:/Users/jakub/AppData/Local/Programs/Python/Python312/python.exe C:/Users/jakub/OneDrive/Dokumenty/GitHub/ksp-proboj-2026-jar-foyer/players/python/player.py",
+      "command": "C:/Users/jakub/AppData/Local/Programs/Python/Python312/python.exe ../players/python/player.py",
       "language": "py"
     },
 
