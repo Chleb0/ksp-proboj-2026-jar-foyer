@@ -1,8 +1,17 @@
 [proboj] 
-init
+Som boh blesku a sex appealu. -idk asi Zeus
 [proboj] 
 STARTING TURN: 0
-
+Traceback (most recent call last):
+  File "C:\Users\jakub\OneDrive\Dokumenty\GitHub\ksp-proboj-2026-jar-foyer\players\python\player.py", line 271, in <module>
+    game.run()
+  File "C:\Users\jakub\OneDrive\Dokumenty\GitHub\ksp-proboj-2026-jar-foyer\players\python\game.py", line 35, in run
+    send_moves(self.player.get_turn(self.world))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jakub\OneDrive\Dokumenty\GitHub\ksp-proboj-2026-jar-foyer\players\python\player.py", line 156, in get_turn
+    Player.log(getCut(fullboard, Point(10, 10)), 11)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: getCut() missing 1 required positional argument: 'vision'
 [proboj] process terminated
  exit: 1
  err: <nil>

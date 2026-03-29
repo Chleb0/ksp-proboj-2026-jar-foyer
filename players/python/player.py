@@ -15,7 +15,7 @@ def bfs(world: World, start:Point, end:Point, directions:List) -> List:
         layer[voda.x][voda.y] = 0
     
     q = deque([start, []])
-    visited = set(start)
+    visited = set([start])
 
     if start == end:
         return []
@@ -152,7 +152,11 @@ class Player(PlayerInterface):
         
 
     def get_turn(self, world: World) -> List[Move]:
+        fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        Player.log(getCut(fullboard, Point(10, 10)), 11)
         if self.train_mode: return self.get_turn_train(world)
+        fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        self.log(getCut(fullboard, Point(10, 10)), 11)
 
         moves = []
         for id, ant in world.alive_shades.items():
@@ -167,13 +171,14 @@ class Player(PlayerInterface):
     def get_turn_train(self, world: World) -> List[Move]:
         self.interval_counter += 1
 
+        fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        self.log(getCut(fullboard, Point(10, 10), 11))
+
+
         moves = []
         for id, ant in world.alive_shades.items():
             
             board : Tensor
-            fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
-
-            self.log(getCut(fullboard, Point(10, 10)), 11)
             
             # HLADIK TU DOPLN VECI KTORE RATAS
             self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
@@ -184,11 +189,11 @@ class Player(PlayerInterface):
                                                 # nic/enem hrobka 0/1
                                                 # nic/ clovek
 
-            self.memory["extra"][id].append(extra)  #toto chcu byt tie features
-            self.memory["actions"][id].append(action.item())
-            self.memory["log_probs"][id].append(log_prob.item())
-            self.memory["rewards"][id].append(reward)
-            self.memory["dones"][id].append(done)
+            #self.memory["extra"][id].append(extra)  #toto chcu byt tie features
+            #self.memory["actions"][id].append(action.item())
+            #self.memory["log_probs"][id].append(log_prob.item())
+            #self.memory["rewards"][id].append(reward)
+            #self.memory["dones"][id].append(done)
 
             self.update_lt(world)
 
@@ -226,7 +231,7 @@ class Player(PlayerInterface):
         tom_diff = self.tom_cnt(world) - self.lt_tomstones
         
         for id, ant in world.alive_shades.items():
-            c
+            
 
             # HLADIK TU DOPLN VECI KTORE RATAS
             self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
