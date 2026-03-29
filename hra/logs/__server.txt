@@ -1,3 +1,4 @@
+Max food count is: 3
 Player windows failed to initialize
 Player windows has been killed
 STARTING TURN: 0

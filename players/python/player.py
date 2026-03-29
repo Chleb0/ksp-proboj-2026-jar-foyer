@@ -74,7 +74,7 @@ def boardSurface(world:World, vision:int) -> List:
     for voda in world.map.water_tiles:
         boardposition = voda+shitfpoint
         layer[boardposition.y][boardposition.x] = 0
-    stred = Point(0, 0)+shitfpoint
+    stred = Point(vision, vision)
     layer[stred.y][stred.x] = 0
     return layer
 
@@ -179,12 +179,12 @@ class Player(PlayerInterface):
         
 
     def get_turn(self, world: World) -> List[Move]:
-        fullboard = getBoard(game.world, 11) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        fullboard = getBoard(game.world, 11)  #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
         Player.log(getCut(fullboard, Point(10, 10), 5))
         Player.log("toto je pravy horny roh", getCut(fullboard, Point(0, 0), 5))
         if self.train_mode: return self.get_turn_train(world)
         fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
-        self.log(getCut(fullboard, Point(10, 10)), 11)
+        self.log(getCut(fullboard, Point(10, 10), 11))
 
         moves = []
         for id, ant in world.alive_shades.items():
