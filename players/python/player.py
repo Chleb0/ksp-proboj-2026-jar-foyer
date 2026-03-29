@@ -141,7 +141,7 @@ BACKUP_PATH = os.path.dirname(os.path.abspath(__file__)) + "/"
 class Player(PlayerInterface):
     memory: PPOMemory
     model: PPO
-    train_mode: bool = True
+    train_mode: bool = False
     training_interval: int = 50
     interval_counter: int = 0
 
@@ -179,11 +179,11 @@ class Player(PlayerInterface):
         
 
     def get_turn(self, world: World) -> List[Move]:
-        fullboard = getBoard(game.world, 11)  #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        fullboard = getBoard(world, 11)  #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
         Player.log(getCut(fullboard, Point(10, 10), 5))
         Player.log("toto je pravy horny roh", getCut(fullboard, Point(0, 0), 5))
         if self.train_mode: return self.get_turn_train(world)
-        fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+
         self.log(getCut(fullboard, Point(10, 10), 11))
 
         moves = []
@@ -200,7 +200,7 @@ class Player(PlayerInterface):
         self.interval_counter += 1
         vision = 11
 
-        fullboard = getBoard(game.world, vision) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        fullboard = getBoard(world, vision) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
         self.log(getCut(fullboard, Point(10, 10), vision))
 
 
@@ -215,7 +215,7 @@ class Player(PlayerInterface):
             reward: float = self.eval_last_move(world, ant, shade_diff, tom_diff)
             if len(self.memory["board"][id]) != 0: self.memory["rewards"][id][-1] = reward
 
-            fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+            fullboard = getBoard(world, 11) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
 
             self.log(getCut(fullboard, Point(10, 10), vision))
 

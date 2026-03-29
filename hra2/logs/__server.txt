@@ -1,6 +1,5 @@
 Max food count is: 2
 Player py failed to initialize
-Could not kill player py
 Player py has been killed
 STARTING TURN: 0
 Game end: No players left
