@@ -1,435 +1,909 @@
 [proboj] 
 [proboj] 
 STARTING TURN: 0
-Tu som kokotko
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 1
-Tu som kokotko
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 2
-Tu som kokotko
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 3
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 4
-Tu som kokotko
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 5
-Tu som kokotko
-Tu som kokotko
+Skusam bfs
 
 [proboj] 
 STARTING TURN: 6
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 7
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
 Skusam bfs
 
 [proboj] 
 STARTING TURN: 8
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 9
-Tu som kokotko
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 10
-Tu som kokotko
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 11
-Tu som kokotko
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 12
-Tu som kokotko
-Tu som kokotko
+Skusam bfs
 
 [proboj] 
 STARTING TURN: 13
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 14
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
 Skusam bfs
 
 [proboj] 
 STARTING TURN: 15
-Tu som kokotko
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 16
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 17
-Tu som kokotko
-Tu som kokotko
 Skusam bfs
 
 [proboj] 
 STARTING TURN: 18
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 19
-Tu som kokotko
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 20
-Tu som kokotko
-Tu som kokotko
 Skusam bfs
 
 [proboj] 
 STARTING TURN: 21
-Tu som kokotko
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 22
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 23
-Tu som kokotko
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 24
-Tu som kokotko
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 25
-Tu som kokotko
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 26
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 27
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 28
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 29
-Tu som kokotko
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 30
-Tu som kokotko
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 31
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 32
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 33
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 34
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 35
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 36
-Tu som kokotko
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 37
-Tu som kokotko
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 38
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 39
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 40
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 41
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 42
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 43
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 44
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
 
 [proboj] 
 STARTING TURN: 45
-Tu som kokotko
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 46
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 47
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 48
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 49
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 50
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 51
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 52
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 53
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 54
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 55
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 56
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 57
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 58
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 59
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 60
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 61
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 62
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 63
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 64
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 65
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 66
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 67
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 68
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 69
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 70
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 71
-Tu som kokotko
-Skusam bfs
 
 [proboj] 
 STARTING TURN: 72
-Tu som kokotko
-Skusam bfs
+
+[proboj] 
+STARTING TURN: 73
+
+[proboj] 
+STARTING TURN: 74
+
+[proboj] 
+STARTING TURN: 75
+
+[proboj] 
+STARTING TURN: 76
+
+[proboj] 
+STARTING TURN: 77
+
+[proboj] 
+STARTING TURN: 78
+
+[proboj] 
+STARTING TURN: 79
+
+[proboj] 
+STARTING TURN: 80
+
+[proboj] 
+STARTING TURN: 81
+
+[proboj] 
+STARTING TURN: 82
+
+[proboj] 
+STARTING TURN: 83
+
+[proboj] 
+STARTING TURN: 84
+
+[proboj] 
+STARTING TURN: 85
+
+[proboj] 
+STARTING TURN: 86
+
+[proboj] 
+STARTING TURN: 87
+
+[proboj] 
+STARTING TURN: 88
+
+[proboj] 
+STARTING TURN: 89
+
+[proboj] 
+STARTING TURN: 90
+
+[proboj] 
+STARTING TURN: 91
+
+[proboj] 
+STARTING TURN: 92
+
+[proboj] 
+STARTING TURN: 93
+
+[proboj] 
+STARTING TURN: 94
+
+[proboj] 
+STARTING TURN: 95
+
+[proboj] 
+STARTING TURN: 96
+
+[proboj] 
+STARTING TURN: 97
+
+[proboj] 
+STARTING TURN: 98
+
+[proboj] 
+STARTING TURN: 99
+
+[proboj] 
+STARTING TURN: 100
+
+[proboj] 
+STARTING TURN: 101
+
+[proboj] 
+STARTING TURN: 102
+
+[proboj] 
+STARTING TURN: 103
+
+[proboj] 
+STARTING TURN: 104
+
+[proboj] 
+STARTING TURN: 105
+
+[proboj] 
+STARTING TURN: 106
+
+[proboj] 
+STARTING TURN: 107
+
+[proboj] 
+STARTING TURN: 108
+
+[proboj] 
+STARTING TURN: 109
+
+[proboj] 
+STARTING TURN: 110
+
+[proboj] 
+STARTING TURN: 111
+
+[proboj] 
+STARTING TURN: 112
+
+[proboj] 
+STARTING TURN: 113
+
+[proboj] 
+STARTING TURN: 114
+
+[proboj] 
+STARTING TURN: 115
+
+[proboj] 
+STARTING TURN: 116
+
+[proboj] 
+STARTING TURN: 117
+
+[proboj] 
+STARTING TURN: 118
+
+[proboj] 
+STARTING TURN: 119
+
+[proboj] 
+STARTING TURN: 120
+
+[proboj] 
+STARTING TURN: 121
+
+[proboj] 
+STARTING TURN: 122
+
+[proboj] 
+STARTING TURN: 123
+
+[proboj] 
+STARTING TURN: 124
+
+[proboj] 
+STARTING TURN: 125
+
+[proboj] 
+STARTING TURN: 126
+
+[proboj] 
+STARTING TURN: 127
+
+[proboj] 
+STARTING TURN: 128
+
+[proboj] 
+STARTING TURN: 129
+
+[proboj] 
+STARTING TURN: 130
+
+[proboj] 
+STARTING TURN: 131
+
+[proboj] 
+STARTING TURN: 132
+
+[proboj] 
+STARTING TURN: 133
+
+[proboj] 
+STARTING TURN: 134
+
+[proboj] 
+STARTING TURN: 135
+
+[proboj] 
+STARTING TURN: 136
+
+[proboj] 
+STARTING TURN: 137
+
+[proboj] 
+STARTING TURN: 138
+
+[proboj] 
+STARTING TURN: 139
+
+[proboj] 
+STARTING TURN: 140
+
+[proboj] 
+STARTING TURN: 141
+
+[proboj] 
+STARTING TURN: 142
+
+[proboj] 
+STARTING TURN: 143
+
+[proboj] 
+STARTING TURN: 144
+
+[proboj] 
+STARTING TURN: 145
+
+[proboj] 
+STARTING TURN: 146
+
+[proboj] 
+STARTING TURN: 147
+
+[proboj] 
+STARTING TURN: 148
+
+[proboj] 
+STARTING TURN: 149
+
+[proboj] 
+STARTING TURN: 150
+
+[proboj] 
+STARTING TURN: 151
+
+[proboj] 
+STARTING TURN: 152
+
+[proboj] 
+STARTING TURN: 153
+
+[proboj] 
+STARTING TURN: 154
+
+[proboj] 
+STARTING TURN: 155
+
+[proboj] 
+STARTING TURN: 156
+
+[proboj] 
+STARTING TURN: 157
+
+[proboj] 
+STARTING TURN: 158
+
+[proboj] 
+STARTING TURN: 159
+
+[proboj] 
+STARTING TURN: 160
+
+[proboj] 
+STARTING TURN: 161
+
+[proboj] 
+STARTING TURN: 162
+
+[proboj] 
+STARTING TURN: 163
+
+[proboj] 
+STARTING TURN: 164
+
+[proboj] 
+STARTING TURN: 165
+
+[proboj] 
+STARTING TURN: 166
+
+[proboj] 
+STARTING TURN: 167
+
+[proboj] 
+STARTING TURN: 168
+
+[proboj] 
+STARTING TURN: 169
+
+[proboj] 
+STARTING TURN: 170
+
+[proboj] 
+STARTING TURN: 171
+
+[proboj] 
+STARTING TURN: 172
+
+[proboj] 
+STARTING TURN: 173
+
+[proboj] 
+STARTING TURN: 174
+
+[proboj] 
+STARTING TURN: 175
+
+[proboj] 
+STARTING TURN: 176
+
+[proboj] 
+STARTING TURN: 177
+
+[proboj] 
+STARTING TURN: 178
+
+[proboj] 
+STARTING TURN: 179
+
+[proboj] 
+STARTING TURN: 180
+
+[proboj] 
+STARTING TURN: 181
+
+[proboj] 
+STARTING TURN: 182
+
+[proboj] 
+STARTING TURN: 183
+
+[proboj] 
+STARTING TURN: 184
+
+[proboj] 
+STARTING TURN: 185
+
+[proboj] 
+STARTING TURN: 186
+
+[proboj] 
+STARTING TURN: 187
+
+[proboj] 
+STARTING TURN: 188
+
+[proboj] 
+STARTING TURN: 189
+
+[proboj] 
+STARTING TURN: 190
+
+[proboj] 
+STARTING TURN: 191
+
+[proboj] 
+STARTING TURN: 192
+
+[proboj] 
+STARTING TURN: 193
+
+[proboj] 
+STARTING TURN: 194
+
+[proboj] 
+STARTING TURN: 195
+
+[proboj] 
+STARTING TURN: 196
+
+[proboj] 
+STARTING TURN: 197
+
+[proboj] 
+STARTING TURN: 198
+
+[proboj] 
+STARTING TURN: 199
+
+[proboj] 
+STARTING TURN: 200
+
+[proboj] 
+STARTING TURN: 201
+
+[proboj] 
+STARTING TURN: 202
+
+[proboj] 
+STARTING TURN: 203
+
+[proboj] 
+STARTING TURN: 204
+
+[proboj] 
+STARTING TURN: 205
+
+[proboj] 
+STARTING TURN: 206
+
+[proboj] 
+STARTING TURN: 207
+
+[proboj] 
+STARTING TURN: 208
+
+[proboj] 
+STARTING TURN: 209
+
+[proboj] 
+STARTING TURN: 210
+
+[proboj] 
+STARTING TURN: 211
+
+[proboj] 
+STARTING TURN: 212
+
+[proboj] 
+STARTING TURN: 213
+
+[proboj] 
+STARTING TURN: 214
+
+[proboj] 
+STARTING TURN: 215
+
+[proboj] 
+STARTING TURN: 216
+
+[proboj] 
+STARTING TURN: 217
+
+[proboj] 
+STARTING TURN: 218
+
+[proboj] 
+STARTING TURN: 219
+
+[proboj] 
+STARTING TURN: 220
+
+[proboj] 
+STARTING TURN: 221
+
+[proboj] 
+STARTING TURN: 222
+
+[proboj] 
+STARTING TURN: 223
+
+[proboj] 
+STARTING TURN: 224
+
+[proboj] 
+STARTING TURN: 225
+
+[proboj] 
+STARTING TURN: 226
+
+[proboj] 
+STARTING TURN: 227
+
+[proboj] 
+STARTING TURN: 228
+
+[proboj] 
+STARTING TURN: 229
+
+[proboj] 
+STARTING TURN: 230
+
+[proboj] 
+STARTING TURN: 231
+
+[proboj] 
+STARTING TURN: 232
+
+[proboj] 
+STARTING TURN: 233
+
+[proboj] 
+STARTING TURN: 234
+
+[proboj] 
+STARTING TURN: 235
+
+[proboj] 
+STARTING TURN: 236
+
+[proboj] 
+STARTING TURN: 237
+
+[proboj] 
+STARTING TURN: 238
+
+[proboj] 
+STARTING TURN: 239
+
+[proboj] 
+STARTING TURN: 240
+
+[proboj] 
+STARTING TURN: 241
+
+[proboj] 
+STARTING TURN: 242
+
+[proboj] 
+STARTING TURN: 243
+
+[proboj] 
+STARTING TURN: 244
+
+[proboj] 
+STARTING TURN: 245
+
+[proboj] 
+STARTING TURN: 246
+
+[proboj] 
+STARTING TURN: 247
+
+[proboj] 
+STARTING TURN: 248
+
+[proboj] 
+STARTING TURN: 249
+
+[proboj] 
+STARTING TURN: 250
+
+[proboj] 
+STARTING TURN: 251
+
+[proboj] 
+STARTING TURN: 252
+
+[proboj] 
+STARTING TURN: 253
+
+[proboj] 
+STARTING TURN: 254
+
+[proboj] 
+STARTING TURN: 255
+
+[proboj] 
+STARTING TURN: 256
+
+[proboj] 
+STARTING TURN: 257
+
+[proboj] 
+STARTING TURN: 258
+
+[proboj] 
+STARTING TURN: 259
+
+[proboj] 
+STARTING TURN: 260
+
+[proboj] 
+STARTING TURN: 261
+
+[proboj] 
+STARTING TURN: 262
+
+[proboj] 
+STARTING TURN: 263
+
+[proboj] 
+STARTING TURN: 264
+
+[proboj] 
+STARTING TURN: 265
+
+[proboj] 
+STARTING TURN: 266
+
+[proboj] 
+STARTING TURN: 267
+
+[proboj] 
+STARTING TURN: 268
+
+[proboj] 
+STARTING TURN: 269
+
+[proboj] 
+STARTING TURN: 270
+
+[proboj] 
+STARTING TURN: 271
+
+[proboj] 
+STARTING TURN: 272
+
+[proboj] 
+STARTING TURN: 273
+
+[proboj] 
+STARTING TURN: 274
+
+[proboj] 
+STARTING TURN: 275
+
+[proboj] 
+STARTING TURN: 276
+
+[proboj] 
+STARTING TURN: 277
+
+[proboj] 
+STARTING TURN: 278
+
+[proboj] 
+STARTING TURN: 279
+
+[proboj] 
+STARTING TURN: 280
+
+[proboj] 
+STARTING TURN: 281
+
+[proboj] 
+STARTING TURN: 282
+
+[proboj] 
+STARTING TURN: 283
+
+[proboj] 
+STARTING TURN: 284
+
+[proboj] 
+STARTING TURN: 285
+
+[proboj] 
+STARTING TURN: 286
+
+[proboj] 
+STARTING TURN: 287
+
+[proboj] 
+STARTING TURN: 288
+
+[proboj] 
+STARTING TURN: 289
+
+[proboj] 
+STARTING TURN: 290
+
+[proboj] 
+STARTING TURN: 291
+
+[proboj] 
+STARTING TURN: 292
+
+[proboj] 
+STARTING TURN: 293
+
+[proboj] 
+STARTING TURN: 294
+
+[proboj] 
+STARTING TURN: 295
+
+[proboj] 
+STARTING TURN: 296
+
+[proboj] 
+STARTING TURN: 297
+
+[proboj] 
+STARTING TURN: 298
+
+[proboj] 
+STARTING TURN: 299
 
 [proboj] process terminated
  exit: 1

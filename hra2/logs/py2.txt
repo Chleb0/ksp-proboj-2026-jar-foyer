@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [proboj] 
 [proboj] 
 STARTING TURN: 0
@@ -1249,6 +1250,8 @@ Tu som kokotko
 STARTING TURN: 299
 Tu som kokotko
 
+=======
+>>>>>>> 8b77dcfc2b3f795e763d79f266083eee34c629b9
 [proboj] process terminated
- exit: 1
- err: <nil>
+ exit: 0
+ err: fork/exec C:/Users/jakub/AppData/Local/Programs/Python/Python312/python.exe: The system cannot find the path specified.

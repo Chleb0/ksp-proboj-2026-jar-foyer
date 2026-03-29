@@ -8,17 +8,7 @@ from random import shuffle
 from model import *
 import torch
 
-def killsAroundMe(shade: Shade, shade_positions: Dict[Point, Shade]):
-    killcount = 0
 
-    mojstrach = shade.get_fear()
-    enemyfear = shade.get_enemy_fears(shade_positions)
-    for shade, fear in enemyfear.items():
-        if fear >= mojstrach:
-            killcount += 1
-
-    return killcount
-        
 
 def add_to_queue(visited: dict[Point, Point], q: List[Point], frm: Point, world : World):
     move_def : dict = {
@@ -163,7 +153,7 @@ INPUT_CHANNELS = 6
 OUTPUT_CHANNELS = 5
 EXTRA_STAT = 1
 VISION = 5
-BACKUP_PATH = os.path.dirname(os.path.abspath(__file__)) + "/kokotko"
+BACKUP_PATH = os.path.dirname(os.path.abspath(__file__)) + "/kokotko2"
 
 class Player(PlayerInterface):
     memory: PPOMemory
@@ -343,7 +333,8 @@ class Player(PlayerInterface):
 
     def eval_last_move(self, world: World, ghost: Shade, shade_diff: int, tom_diff: int) -> float:
         kills = 0
-        return kills * 10  + shade_diff + tom_diff*250
+        dies = ghost.will_i_die(self.shade_positions)
+        return kills * 10 - dies * 10 + shade_diff + tom_diff*50
 
     def setzeromem(self, ghost: ShadeID):
         self.memory["board"][ghost] = []

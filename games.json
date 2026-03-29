@@ -2,8 +2,8 @@
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
     "args": "../maps/maze.ppm"
   }

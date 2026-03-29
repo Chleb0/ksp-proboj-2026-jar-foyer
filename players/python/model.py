@@ -50,8 +50,6 @@ class PPOActorCritic(nn.Module):
         self.critic: nn.Linear = nn.Linear(256, 1)
 
     def forward(self, img: Tensor, extra: Tensor) -> Tuple[Tensor, Tensor]:
-        extra = extra.unsqueeze(0)
-        img = img.unsqueeze(0)
         cnn_features: Tensor = self.cnn(img)
         extra_features: Tensor = self.extra_fc(extra)
         
@@ -64,6 +62,8 @@ class PPOActorCritic(nn.Module):
         return logits, value
 
     def get_action(self, img: Tensor, extra: Tensor) -> Tuple[Tensor, Tensor, Tensor]:
+        extra = extra.unsqueeze(0)
+        img = img.unsqueeze(0)
         logits, value = self.forward(img, extra)
         probs: Categorical = Categorical(logits=logits)
         action: Tensor = probs.sample()
@@ -157,11 +157,9 @@ class PPO:
             loss.backward()
             self.optimizer.step()
 
-def save_checkpoint(
-    ppo: PPO,
-    file_path: str
-) -> None:
-    temp_path = file_path
+
+def save_checkpoint(ppo: PPO, file_path: str) -> None:
+    temp_path = file_path + ".tmp"
 
     checkpoint = {
         "model_state_dict": ppo.model.state_dict(),
