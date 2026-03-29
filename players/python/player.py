@@ -139,7 +139,7 @@ def boardPeople(world:World, vision:int) -> List:
     return layer
 
 
-INPUT_CHANNELS = 5
+INPUT_CHANNELS = 6
 OUTPUT_CHANNELS = 5
 EXTRA_STAT = 1
 VISION = 5
@@ -156,6 +156,7 @@ class Player(PlayerInterface):
 
     shade_positions: dict[Point, Shade] = {}
     people_positions: dict[Point, Person] = {}
+    our_shade = 0
 
     @staticmethod
     def log(*args):
@@ -167,8 +168,10 @@ class Player(PlayerInterface):
         actor_model : PPOActorCritic = PPOActorCritic(INPUT_CHANNELS, EXTRA_STAT, OUTPUT_CHANNELS)
         self.model = PPO(actor_model)
 
-        # load_checkpoint(self.model, os.path.dirname(os.path.abspath(__file__)) + "/backup.tmp")
-        pass
+        try:
+            load_checkpoint(self.model, os.path.dirname(os.path.abspath(__file__)) + "/backup.tmp")
+        except:
+            pass
 
     def preprocess(self, world: World):
         self.people_positions = {}
@@ -176,8 +179,11 @@ class Player(PlayerInterface):
         for person in world.alive_people:
             self.people_positions[person.position] = person
         
+        our_shade = 0
         for _, ghost in world.alive_shades.items():
             self.shade_positions[ghost.position] = ghost
+            if ghost.owner == world.my_id:
+                self.our_shade+=1
 
     def get_turn(self, world: World) -> List[Move]:
         self.preprocess(world)
@@ -213,25 +219,26 @@ class Player(PlayerInterface):
         moves : List[Move] = []
         shade_diff = self.shades_cnt(world) - self.lt_alive
         tom_diff = self.tom_cnt(world) - self.lt_tomstones
+        fullboard = getBoard(world, VISION)
 
         for id, ant in world.alive_shades.items():
-            
-            board : Tensor
-            extra: Tensor
+            extra: Tensor = torch.tensor(
+                [self.our_shade / len(world.alive_shades)]
+            )
             reward: float = self.eval_last_move(world, ant, shade_diff, tom_diff)
             if len(self.memory["board"][id]) != 0: self.memory["rewards"][id][-1] = reward
 
-            fullboard = getBoard(world, VISION) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+            my_board = getCut(fullboard, ant.position, VISION)
 
-            self.log(getCut(fullboard, Point(VISION, VISION), VISION))
+            self.log(getCut(my_board, Point(VISION, VISION), VISION))
 
-            action, log_prob, _ = self.model.model.get_action(board, extra)
+            action, log_prob, _ = self.model.model.get_action(my_board, extra)
             volba = int(action.item())
 
             die = ant.will_i_die(self.shade_positions)
 
             # HLADIK TU DOPLN VECI KTORE RATAS
-            self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
+            self.memory["board"][id].append(my_board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
                                                 # water/ground - 0/1
                                                 # enemy/nie
                                                 # friend/nie
