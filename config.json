@@ -7,6 +7,10 @@
       "command": "C:/Users/jakub/AppData/Local/Programs/Python/Python312/python.exe ../players/python/player.py",
       "language": "py"
     },
+    "py2": {
+      "command": "C:/Users/jakub/AppData/Local/Programs/Python/Python312/python.exe ../players/python/player.py",
+      "language": "py"
+    },
 
     "windows": {
       "command": "C:/Users/Sebik/AppData/Local/Programs/Python/Python312/python.exe C:/Users/Sebik/Documents/pornboj/ksp-proboj-2026-jar-foyer/players/python/player.py",

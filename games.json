@@ -1,17 +1,97 @@
 [
   {
-    "gamefolder": "hra",
+    "gamefolder": "hra2",
     "players": [
-      "windows"
+      "py",
+      "py2"
     ],
     "args": "../maps/maze.ppm"
   },
-
   {
     "gamefolder": "hra2",
     "players": [
       "py",
-      "py"
+      "py2"
+    ],
+    "args": "../maps/maze.ppm"
+  },
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "py",
+      "py2"
+    ],
+    "args": "../maps/maze.ppm"
+  },
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "py",
+      "py2"
+    ],
+    "args": "../maps/maze.ppm"
+  },
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "py",
+      "py2"
+    ],
+    "args": "../maps/maze.ppm"
+  },
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "py",
+      "py2"
+    ],
+    "args": "../maps/maze.ppm"
+  },
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "py",
+      "py2"
+    ],
+    "args": "../maps/maze.ppm"
+  },
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "py",
+      "py2"
+    ],
+    "args": "../maps/maze.ppm"
+  },
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "py",
+      "py2"
+    ],
+    "args": "../maps/maze.ppm"
+  },
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "py",
+      "py2"
+    ],
+    "args": "../maps/maze.ppm"
+  },
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "py",
+      "py2"
+    ],
+    "args": "../maps/maze.ppm"
+  },
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "py",
+      "py2"
     ],
     "args": "../maps/maze.ppm"
   }
