@@ -9,10 +9,15 @@ import torch
 
 class Player(PlayerInterface):
     memory: PPOMemory
+    model: PPO
     train_mode: bool = True
+    training_interval: int = 50
+    interval_counter: int = 0
 
     lt_alive: int = 0
     lt_tomstones: int = 0
+
+    shade_positions: Dict[Point, Shade] = {}
 
     @staticmethod
     def log(*args):
@@ -31,12 +36,12 @@ class Player(PlayerInterface):
             Player.log("Dojebal som načítavanie dát kokotko")
         except:
             memory: PPOMemory = {
-                "board": [],
-                "extra": [],
-                "actions": [],
-                "log_probs": [],
-                "rewards": [],
-                "dones": []
+                "board": {},
+                "extra": {},
+                "actions": {},
+                "log_probs": {},
+                "rewards": {},
+                "dones": {}
             }
 
     def generate_layers(self, world: World, point: Point, vision: int) -> List:
@@ -57,17 +62,18 @@ class Player(PlayerInterface):
         return moves
     
     def get_turn_train(self, world: World) -> List[Move]:
+        self.interval_counter += 1
+
         moves = []
         for id, ant in world.alive_shades.items():
             
-            
             # HLADIK TU DOPLN VECI KTORE RATAS
-            self.memory["board"].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
-            self.memory["extra"].append(extra)  #toto chcu byt tie features
-            self.memory["actions"].append(action.item())
-            self.memory["log_probs"].append(log_prob.item())
-            self.memory["rewards"].append(reward)
-            self.memory["dones"].append(done)
+            self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
+            self.memory["extra"][id].append(extra)  #toto chcu byt tie features
+            self.memory["actions"][id].append(action.item())
+            self.memory["log_probs"][id].append(log_prob.item())
+            self.memory["rewards"][id].append(reward)
+            self.memory["dones"][id].append(done)
 
             self.update_lt(world)
 
@@ -95,8 +101,38 @@ class Player(PlayerInterface):
     def eval_last_move(self, world: World):
         shade_diff = self.shades_cnt(world) - self.lt_alive
         tom_diff = self.tom_cnt(world) - self.lt_tomstones
+        
+        for id, ant in world.alive_shades.items():
+            c
 
-    
+            # HLADIK TU DOPLN VECI KTORE RATAS
+            self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
+            self.memory["extra"][id].append(extra)  #toto chcu byt tie features
+            self.memory["actions"][id].append(action.item())
+            self.memory["log_probs"][id].append(log_prob.item())
+            self.memory["rewards"][id].append(reward)
+            self.memory["dones"][id].append(done)
+
+    def setzeromem(self, ghost: ShadeID):
+        self.memory["board"][ghost] = []
+        self.memory["extra"][ghost] = []
+        self.memory["actions"][ghost] = []
+        self.memory["log_probs"][ghost] = []
+        self.memory["rewards"][ghost] = []
+        self.memory["dones"][ghost] = []
+
+    def train_one_ghost(self, ghost: ShadeID):
+        self.model.update(self.memory, ghost)
+        self.setzeromem(ghost)
+
+    def check_ghost_memory(self, ghost: ShadeID, world: World):
+        if ghost not in self.memory["board"]:
+            self.setzeromem(ghost)
+        else:
+            if len(self.memory["board"][ghost]) >= self.training_interval or world.alive_shades[ghost].will_i_die(self.shade_positions):
+                self.model.update(self.memory, ghost)
+                
+
     def eval_ghost_turn(self, shade: Shade, world: World) -> float:
         pass
         
