@@ -10,7 +10,7 @@ import torch
 
 
 
-def add_to_queue(visited: dict[Point, Point], q: List[Point], frm: Point):
+def add_to_queue(visited: dict[Point, Point], q: List[Point], frm: Point, world : World):
     move_def : dict = {
                 1 : Point(0,1),
                 2 : Point(1,0),
@@ -18,31 +18,41 @@ def add_to_queue(visited: dict[Point, Point], q: List[Point], frm: Point):
                 4 : Point(-1,0)
             }
 
-    for _, move in move_def:
+    for _, move in move_def.items():
         to = frm + move
-        if to not in visited:
+        if to not in visited and world.map.can_move_to(to):
             visited[to] = frm
             q.append(to)
 
 def bfs_find_person(world: World, start: Point, pipel: dict[Point, Person]) -> Point:
+    if len(pipel.items()) == 0: return start
+
     came_from : dict[Point, Point] = {}
     came_from[start] = start
 
     queue : List[Point] = []
-    add_to_queue(came_from, queue, start) 
+    add_to_queue(came_from, queue, start, world) 
 
     q_ind: int = 0
     end : Point = start
-    while(True):
+    while(len(queue) != 0):
         pnt: Point = queue[q_ind]
         if pnt in pipel:
             end = pnt
             break
+        else:
+            add_to_queue(came_from, queue, pnt, world)
+            q_ind +=1
+
+    if end == start:
+        return start
 
     while(True):
         predecessor = came_from[end]
         if predecessor == start:
             return end
+        else:
+            end = predecessor
 
 def getCut(board: Tensor, position: Point, vision: int) -> Tensor:
 
@@ -58,12 +68,12 @@ def getCut(board: Tensor, position: Point, vision: int) -> Tensor:
 
 def getBoard(world: World, vision) -> Tensor:
 
-        Surface = torch.tensor(boardSurface(world, vision), dtype=torch.bool)
-        Enemies = torch.tensor(boardEnemies(world, vision), dtype=torch.bool)
-        Friends = torch.tensor(boardFriends(world, vision), dtype=torch.bool)
-        Homes = torch.tensor(boardHomes(world, vision), dtype=torch.bool)
-        EnemyHomes = torch.tensor(boardEnemyHomes(world, vision), dtype=torch.bool)
-        People = torch.tensor(boardPeople(world, vision), dtype=torch.bool)
+        Surface = torch.tensor(boardSurface(world, vision), dtype=torch.float32)
+        Enemies = torch.tensor(boardEnemies(world, vision), dtype=torch.float32)
+        Friends = torch.tensor(boardFriends(world, vision), dtype=torch.float32)
+        Homes = torch.tensor(boardHomes(world, vision), dtype=torch.float32)
+        EnemyHomes = torch.tensor(boardEnemyHomes(world, vision), dtype=torch.float32)
+        People = torch.tensor(boardPeople(world, vision), dtype=torch.float32)
         
         board = torch.stack([Surface, Enemies, Friends, Homes, EnemyHomes, People])
 
@@ -163,10 +173,19 @@ class Player(PlayerInterface):
         print(*args, file=sys.stderr)
 
     def init(self, world: World) -> None:
-        Player.log("Som boh blesku a sex appealu. -idk asi Zeus")
+        #Player.log("Som boh blesku a sex appealu. -idk asi Zeus")
         
         actor_model : PPOActorCritic = PPOActorCritic(INPUT_CHANNELS, EXTRA_STAT, OUTPUT_CHANNELS)
         self.model = PPO(actor_model)
+
+        self.memory = {
+            "board": {},
+            "extra": {},
+            "actions": {},
+            "log_probs": {},
+            "rewards": {},
+            "dones": {},
+        }
 
         try:
             load_checkpoint(self.model, os.path.dirname(os.path.abspath(__file__)) + "/backup.tmp")
@@ -189,17 +208,17 @@ class Player(PlayerInterface):
         self.preprocess(world)
         self.preprocess(world)
         fullboard = getBoard(world, VISION)  #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
-        Player.log(getCut(fullboard, Point(world.map.width-1, world.map.height-1), VISION))
-        Player.log(world.alive_tombstones)
-        Player.log("toto je pravy horny roh")
-        Player.log(self.shade_positions)
+        #Player.log(getCut(fullboard, Point(world.map.width-1, world.map.height-1), VISION))
+        #Player.log(world.alive_tombstones)
+        #Player.log("toto je pravy horny roh")
+        #Player.log(self.shade_positions)
         veci = list(self.shade_positions.keys())
         vec = veci[0]
         x, y = vec.x, vec.y
-        Player.log(getCut(fullboard, Point(0, 0), VISION))
+        #Player.log(getCut(fullboard, Point(0, 0), VISION))
         if self.train_mode: return self.get_turn_train(world)
 
-        self.log(getCut(fullboard, Point(10, 10), 11))
+        #self.log(getCut(fullboard, Point(10, 10), 11))
 
         moves = []
         for id, ant in world.alive_shades.items():
@@ -213,7 +232,7 @@ class Player(PlayerInterface):
     
     def get_turn_train(self, world: World) -> List[Move]:
         fullboard = getBoard(world, VISION) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
-        self.log(getCut(fullboard, Point(10, 10), VISION))
+        #self.log(getCut(fullboard, Point(10, 10), VISION))
 
 
         moves : List[Move] = []
@@ -222,15 +241,18 @@ class Player(PlayerInterface):
         fullboard = getBoard(world, VISION)
 
         for id, ant in world.alive_shades.items():
+            if ant.owner != world.my_id: continue 
+
             extra: Tensor = torch.tensor(
                 [self.our_shade / len(world.alive_shades)]
             )
             reward: float = self.eval_last_move(world, ant, shade_diff, tom_diff)
-            if len(self.memory["board"][id]) != 0: self.memory["rewards"][id][-1] = reward
+            if id in self.memory["board"]: self.memory["rewards"][id][-1] = reward
+            else: self.setzeromem(ant.id)
 
             my_board = getCut(fullboard, ant.position, VISION)
 
-            self.log(getCut(my_board, Point(VISION, VISION), VISION))
+            #self.log(getCut(my_board, Point(VISION, VISION), VISION))
 
             action, log_prob, _ = self.model.model.get_action(my_board, extra)
             volba = int(action.item())
@@ -266,15 +288,17 @@ class Player(PlayerInterface):
             """
 
             move_def : dict = {
-                1 : Point(0,1),
-                2 : Point(1,0),
-                3 : Point(0,-1),
-                4 : Point(-1,0)
+                0 : Point(0,1),
+                1 : Point(1,0),
+                2 : Point(0,-1),
+                3 : Point(-1,0)
             }
 
-            if volba < 5:
+            self.log("Tu som kokotko")
+            if volba < 4:
                 moves.append(Move(id, ant.position + move_def[volba]))
             else:
+                self.log("Skusam bfs")
                 moves.append(Move(id, bfs_find_person(world, ant.position, self.people_positions)))
 
             #nech sa rozhodne medzi
