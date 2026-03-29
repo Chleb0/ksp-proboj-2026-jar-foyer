@@ -136,6 +136,7 @@ def boardPeople(world:World, vision:int) -> List:
 INPUT_CHANNELS = 5
 OUTPUT_CHANNELS = 5
 EXTRA_STAT = 1
+VISION = 5
 BACKUP_PATH = os.path.dirname(os.path.abspath(__file__)) + "/"
 
 class Player(PlayerInterface):
@@ -143,7 +144,6 @@ class Player(PlayerInterface):
     model: PPO
     train_mode: bool = False
     training_interval: int = 50
-    interval_counter: int = 0
 
     lt_alive: int = 0
     lt_tomstones: int = 0
@@ -162,21 +162,6 @@ class Player(PlayerInterface):
 
         load_checkpoint(self.model, os.path.dirname(os.path.abspath(__file__)) + "/backup.tmp")
         pass
-    
-    def load_memory(self) -> None:
-        try:
-            memory: PPOMemory = torch.load(r"C:\Users\Sebik\Documents\pornboj\ksp-proboj-2026-jar-foyer\players\python\memory.pt")
-            Player.log("Dojebal som načítavanie dát kokotko")
-        except:
-            memory: PPOMemory = {
-                "board": {},
-                "extra": {},
-                "actions": {},
-                "log_probs": {},
-                "rewards": {},
-                "dones": {}
-            }
-        
 
     def get_turn(self, world: World) -> List[Move]:
         fullboard = getBoard(world, 11)  #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
@@ -197,11 +182,8 @@ class Player(PlayerInterface):
         return moves
     
     def get_turn_train(self, world: World) -> List[Move]:
-        self.interval_counter += 1
-        vision = 11
-
-        fullboard = getBoard(world, vision) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
-        self.log(getCut(fullboard, Point(10, 10), vision))
+        fullboard = getBoard(world, VISION) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        self.log(getCut(fullboard, Point(10, 10), VISION))
 
 
         moves = []
@@ -215,9 +197,9 @@ class Player(PlayerInterface):
             reward: float = self.eval_last_move(world, ant, shade_diff, tom_diff)
             if len(self.memory["board"][id]) != 0: self.memory["rewards"][id][-1] = reward
 
-            fullboard = getBoard(world, 11) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+            fullboard = getBoard(world, VISION) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
 
-            self.log(getCut(fullboard, Point(10, 10), vision))
+            self.log(getCut(fullboard, Point(10, 10), VISION))
 
             action, log_prob, _ = self.model.model.get_action(board, extra)
             volba = int(action.item())
