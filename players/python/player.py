@@ -136,7 +136,6 @@ class Player(PlayerInterface):
 
     def init(self, world: World) -> None:
         Player.log("Som boh blesku a sex appealu. -idk asi Zeus")
-
         
         actor_model : PPOActorCritic = PPOActorCritic(INPUT_CHANNELS, EXTRA_STAT, OUTPUT_CHANNELS)
         self.model = PPO(actor_model)
@@ -188,6 +187,7 @@ class Player(PlayerInterface):
         for id, ant in world.alive_shades.items():
             
             board : Tensor
+            extra: Tensor
             reward: float = self.eval_last_move(world, ant)
             if len(self.memory["board"][id]) != 0: self.memory["rewards"][id][-1] = reward
 
@@ -195,7 +195,8 @@ class Player(PlayerInterface):
 
             self.log(getCut(fullboard, Point(10, 10), 11))
 
-            
+            action, log_prob, _ = self.model.model.get_action(board, extra)
+
             # HLADIK TU DOPLN VECI KTORE RATAS
             self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
                                                 # water/ground - 0/1
@@ -247,7 +248,7 @@ class Player(PlayerInterface):
         tom_diff = self.tom_cnt(world) - self.lt_tomstones
         
         for id, ant in world.alive_shades.items():
-
+            
 
             # HLADIK TU DOPLN VECI KTORE RATAS
             self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
