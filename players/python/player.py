@@ -68,13 +68,12 @@ def getCut(board: Tensor, position: Point, vision: int) -> Tensor:
 
     x, y = position.x, position.y
 
-    start_x = x+1+vision
-    start_y = y+1+vision
+    start_x = x-vision
+    start_y = y-vision
+    end_x = x+vision+1
+    end_y = y+vision+1
 
     _, h, w = board.shape
-
-    end_x = min(start_x+2*vision+1, h+vision)
-    end_y = min(start_y+2*vision+1, w+vision)
 
     return board[:, start_x:end_x, start_y:end_y]
 
