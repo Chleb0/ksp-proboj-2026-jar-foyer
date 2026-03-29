@@ -2,97 +2,113 @@
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
-    "args": "../maps/maze.ppm"
+    "args": "../maps/greece.ppm"
   },
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
-    "args": "../maps/maze.ppm"
+    "args": "../maps/greece.ppm"
   },
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
-    "args": "../maps/maze.ppm"
+    "args": "../maps/greece.ppm"
   },
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
-    "args": "../maps/maze.ppm"
+    "args": "../maps/greece.ppm"
   },
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
-    "args": "../maps/maze.ppm"
+    "args": "../maps/greece.ppm"
   },
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
-    "args": "../maps/maze.ppm"
+    "args": "../maps/greece.ppm"
   },
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
-    "args": "../maps/maze.ppm"
+    "args": "../maps/greece.ppm"
   },
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
-    "args": "../maps/maze.ppm"
+    "args": "../maps/greece.ppm"
   },
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
-    "args": "../maps/maze.ppm"
+    "args": "../maps/greece.ppm"
   },
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
-    "args": "../maps/maze.ppm"
+    "args": "../maps/greece.ppm"
   },
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
-    "args": "../maps/maze.ppm"
+    "args": "../maps/greece.ppm"
   },
   {
     "gamefolder": "hra2",
     "players": [
-      "py",
-      "py2"
+      "sebko2",
+      "sebko1"
     ],
-    "args": "../maps/maze.ppm"
+    "args": "../maps/greece.ppm"
+  },
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "sebko2",
+      "sebko1"
+    ],
+    "args": "../maps/greece.ppm"
+  },
+  {
+    "gamefolder": "hra2",
+    "players": [
+      "sebko2",
+      "sebko1"
+    ],
+    "args": "../maps/greece.ppm"
   }
 ]

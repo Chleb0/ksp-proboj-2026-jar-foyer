@@ -1,0 +1,36 @@
+[proboj] 
+Traceback (most recent call last):
+  File "C:\Users\Sebik\Documents\pornboj\ksp-proboj-2026-jar-foyer\players\python\player2.py", line 8, in <module>
+    from model import *
+  File "C:\Users\Sebik\Documents\pornboj\ksp-proboj-2026-jar-foyer\players\python\model.py", line 4, in <module>
+    import torch
+  File "C:\Users\Sebik\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\__init__.py", line 2240, in <module>
+    from torch import quantization as quantization  # usort: skip
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sebik\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\quantization\__init__.py", line 2, in <module>
+    from .fake_quantize import *  # noqa: F403
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sebik\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\quantization\fake_quantize.py", line 10, in <module>
+    from torch.ao.quantization.fake_quantize import (
+  File "C:\Users\Sebik\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\ao\quantization\__init__.py", line 12, in <module>
+    from .pt2e._numeric_debugger import (  # noqa: F401
+  File "C:\Users\Sebik\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\ao\quantization\pt2e\_numeric_debugger.py", line 9, in <module>
+    from torch.ao.quantization.pt2e.graph_utils import bfs_trace_with_node_process
+  File "C:\Users\Sebik\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\ao\quantization\pt2e\graph_utils.py", line 9, in <module>
+    from torch.export import ExportedProgram
+  File "C:\Users\Sebik\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\export\__init__.py", line 60, in <module>
+    from .decomp_utils import CustomDecompTable
+  File "C:\Users\Sebik\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\export\decomp_utils.py", line 5, in <module>
+    from torch._export.utils import (
+  File "C:\Users\Sebik\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\_export\__init__.py", line 48, in <module>
+    from .wrappers import _wrap_submodules
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1091, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1190, in get_data
+KeyboardInterrupt
+[proboj] process terminated
+ exit: 3221225786
+ err: <nil>
