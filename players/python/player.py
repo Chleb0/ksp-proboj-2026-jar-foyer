@@ -32,7 +32,7 @@ def bfs(world: World, start:Point, end:Point, directions:List) -> List:
 
 
 
-def getCut(board, position, vision):
+def getCut(board: Tensor, position: Point, vision: int) -> Tensor:
 
     x, y = position.x, position.y
 
@@ -72,40 +72,45 @@ def boardEnemies(world:World) -> List:
     width, height = world.map.width, world.map.height
     layer = [[0 for i in range(width)] for j in range(height)]
     for id, duch in world.alive_shades.items():
-        if duch.id != world.my_id:
-            layer[duch.x][duch.y] = 1
+        if duch.owner != world.my_id:
+            duchpos = duch.position
+            layer[duchpos.x][duchpos.y] = 1
+    return layer
 
 def boardFriends(world:World) -> List:
     width, height = world.map.width, world.map.height
     layer = [[0 for i in range(width)] for j in range(height)]
-    for duch in world.alive_shades:
-        if duch.id == world.my_id:
-            layer[duch.x][duch.y] = 1
+    for id, duch in world.alive_shades.items():
+        if duch.owner == world.my_id:
+            duchpos = duch.position
+            layer[duchpos.x][duchpos.y] = 1
+    return layer
 
 def boardHomes(world:World) -> List:
     width, height = world.map.width, world.map.height
     layer = [[0 for i in range(width)] for j in range(height)]
     for home in world.alive_tombstones:
-        if home.id == world.my_id:
-            layer[home.x][home.y] = 1
+        if home.owner == world.my_id:
+            homepos = home.position
+            layer[homepos.x][homepos.y] = 1
+    return layer
 
 def boardEnemyHomes(world:World) -> List:
     width, height = world.map.width, world.map.height
     layer = [[0 for i in range(width)] for j in range(height)]
     for home in world.alive_tombstones:
-        if home.id != world.my_id:
-            layer[home.x][home.y] = 1
+        if home.owner != world.my_id:
+            homepos = home.position
+            layer[homepos.x][homepos.y] = 1
+    return layer
             
 def boardPeople(world:World) -> List:
     width, height = world.map.width, world.map.height
     layer = [[0 for i in range(width)] for j in range(height)]
     for person in world.alive_people:
-        layer[person.x][person.y] = 1
-
-
-def makeMove():
-    
-
+        personpos = person.position
+        layer[personpos.x][personpos.y] = 1
+    return layer
 
 
 class Player(PlayerInterface):
@@ -167,6 +172,8 @@ class Player(PlayerInterface):
             
             board : Tensor
             fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+
+            self.log(getCut(fullboard, Point(10, 10)), 11)
             
             # HLADIK TU DOPLN VECI KTORE RATAS
             self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
