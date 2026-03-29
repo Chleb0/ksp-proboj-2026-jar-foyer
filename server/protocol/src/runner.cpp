@@ -59,7 +59,7 @@ void Runner::to_observer(const ObserverTurn& state) {
     }
 }
 
-void Runner::send_scores(const map<string, int>& scores){
+void Runner::send_scores(const map<string, double>& scores){
     cerr << "Sending scores" << endl;
     std::stringstream payload;
 

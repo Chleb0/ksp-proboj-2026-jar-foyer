@@ -28,7 +28,7 @@ optional<tuple<PpmHeader, vector<PpmPixel>>> parse_ppm(const std::string &image_
     file.ignore(1);
     // Skip comments
     while (file.peek() == '#') {
-        file.ignore(numeric_limits<streamsize>::max(), '\n');
+        file.ignore(1<<30, '\n');
     }
 
     if(!(file >> header.width >> header.height >> header.max_value)) {
@@ -43,7 +43,7 @@ optional<tuple<PpmHeader, vector<PpmPixel>>> parse_ppm(const std::string &image_
             cerr << "Failed to read pixel: " << i << endl;
             return nullopt;
         }
-        if(max({r,g,b}) > header.max_value) {
+        if(max(max(r,g),b) > header.max_value) {
             cerr << "Pixel value out of range: " << r << " " << g << " " << b << endl;
             return nullopt;
         }

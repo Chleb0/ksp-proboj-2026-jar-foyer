@@ -118,9 +118,9 @@ void Game::game_loop() {
 void Game::cleanup() {
     // save scores
     //
-    map<std::string, int> scores;
+    map<std::string, double> scores;
     for (auto&& [_, player] : all_players) {
-        scores[player.get_name()] = player.get_score();
+        scores[player.get_name()] = 100 * player.get_score();
     }
     runner.send_scores(scores);
 
@@ -168,8 +168,9 @@ void Game::kill_player(PlayerID player_id) {
     runner.kill_player(player.get_name());
     cerr << "Player " << player.get_name() << " has been killed" << endl;
     alive_players.erase(player_id);
+    double alive_player_count = (double) alive_players.size();
     for(PlayerID id : alive_players) {
-        all_players[id].update_score(ALIVE_POINTS);
+        all_players[id].update_score(ALIVE_POINTS / alive_player_count);
     }
 }
 
