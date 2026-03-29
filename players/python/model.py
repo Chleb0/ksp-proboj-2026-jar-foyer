@@ -7,6 +7,7 @@ import torch.nn.functional as F
 from torch import Tensor
 from torch.distributions import Categorical
 from data import ShadeID
+import os
 
 class PPOMemory(TypedDict):
     board: Dict[ShadeID, List[Tensor]]
@@ -154,3 +155,25 @@ class PPO:
             loss.backward()
             self.optimizer.step()
 
+def save_checkpoint(
+    ppo: PPO,
+    file_path: str
+) -> None:
+    temp_path = file_path + "model.tmp"
+
+    checkpoint = {
+        "model_state_dict": ppo.model.state_dict(),
+        "optimizer_state_dict": ppo.optimizer.state_dict()
+    }
+
+    torch.save(checkpoint, temp_path)
+    os.replace(temp_path, file_path)
+
+def load_checkpoint(
+    ppo: PPO,
+    file_path: str
+) -> None:
+    checkpoint = torch.load(file_path)
+
+    ppo.model.load_state_dict(checkpoint["model_state_dict"])
+    ppo.optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
