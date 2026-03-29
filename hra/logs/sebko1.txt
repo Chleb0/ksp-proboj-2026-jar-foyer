@@ -1,0 +1,436 @@
+[proboj] 
+[proboj] 
+STARTING TURN: 0
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 1
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 2
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 3
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 4
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 5
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 6
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 7
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 8
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 9
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 10
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 11
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 12
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 13
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 14
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 15
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 16
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 17
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 18
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 19
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 20
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 21
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 22
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 23
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 24
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 25
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 26
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 27
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 28
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 29
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 30
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 31
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 32
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 33
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 34
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 35
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 36
+Tu som kokotko
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 37
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 38
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 39
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 40
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 41
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 42
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 43
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 44
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+
+[proboj] 
+STARTING TURN: 45
+Tu som kokotko
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 46
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 47
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 48
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 49
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 50
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 51
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 52
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 53
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 54
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 55
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 56
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 57
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 58
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 59
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 60
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 61
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 62
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 63
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 64
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 65
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 66
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 67
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 68
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 69
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 70
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 71
+Tu som kokotko
+Skusam bfs
+
+[proboj] 
+STARTING TURN: 72
+Tu som kokotko
+Skusam bfs
+
+[proboj] process terminated
+ exit: 1
+ err: <nil>

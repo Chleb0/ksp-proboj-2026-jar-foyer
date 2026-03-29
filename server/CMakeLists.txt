@@ -8,6 +8,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project(ksp-proboj-2026-jar LANGUAGES CXX)
 
+add_compile_options(-Wall -Wextra -Wpedantic)
+
 # Setup external dependencies
 include(FetchContent)
 

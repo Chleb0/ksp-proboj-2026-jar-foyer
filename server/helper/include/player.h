@@ -12,8 +12,8 @@ struct Player {
     Player() = default;
     std::string get_name() const { return name; }
     PlayerID get_id() const { return id; }
-    int get_score() const { return score; }
-    void update_score(int delta) { score += delta; }
+    double get_score() const { return score; }
+    void update_score(double delta) { score += delta; }
     int get_food_count() const { return food_count; }
     void inc_food_count() { food_count++; }
     void dec_food_count() { food_count--; }
@@ -25,7 +25,7 @@ struct Player {
   private:
     friend struct glz::meta<Player>;
     std::string name;
-    int score = 0;
+    double score = 0.0;
     int food_count = 0;
     int alive_ants = 0;
     PlayerID id;

@@ -30,7 +30,7 @@ class PPOActorCritic(nn.Module):
 
         # Compute CNN output size dynamically
         with torch.no_grad():
-            dummy: Tensor = torch.zeros(1, input_channels, 84, 84)
+            dummy: Tensor = torch.zeros(1, input_channels, 11, 11)
             cnn_out_dim: int = self.cnn(dummy).shape[1]
 
         # Extra input branch
@@ -50,9 +50,11 @@ class PPOActorCritic(nn.Module):
         self.critic: nn.Linear = nn.Linear(256, 1)
 
     def forward(self, img: Tensor, extra: Tensor) -> Tuple[Tensor, Tensor]:
+        extra = extra.unsqueeze(0)
+        img = img.unsqueeze(0)
         cnn_features: Tensor = self.cnn(img)
         extra_features: Tensor = self.extra_fc(extra)
-
+        
         combined: Tensor = torch.cat([cnn_features, extra_features], dim=1)
         hidden: Tensor = self.combined_fc(combined)
 
@@ -123,8 +125,8 @@ class PPO:
     def update(self, memory: PPOMemory, ghost: ShadeID) -> None:
         boards: Tensor = torch.stack(memory['board'][ghost])
         extras: Tensor = torch.stack(memory['extra'][ghost])
-        actions: Tensor = torch.tensor(memory['actions'][ghost])
-        old_log_probs: Tensor = torch.tensor(memory['log_probs'][ghost])
+        actions: Tensor = torch.tensor(memory['actions'][ghost], dtype=torch.long)
+        old_log_probs: Tensor = torch.tensor(memory['log_probs'][ghost], dtype=torch.float32)
         rewards: List[float] = memory['rewards'][ghost]
         dones: List[bool] = memory['dones'][ghost]
 
@@ -159,7 +161,7 @@ def save_checkpoint(
     ppo: PPO,
     file_path: str
 ) -> None:
-    temp_path = file_path + "model.tmp"
+    temp_path = file_path
 
     checkpoint = {
         "model_state_dict": ppo.model.state_dict(),

@@ -1,15 +1,15 @@
 #pragma once
 
 /// Points awarded to other players when one player dies.
-const int ALIVE_POINTS = 1;
+const double ALIVE_POINTS = 1.0;
 /// Points per controlled hill. This quantity is subtracted when player loses a
 /// hill.
-const int POINTS_PER_HILL = 1;
+extern double POINTS_PER_HILL;
 /// Points awarded to player that destroyed a hill.
-const int RAZING_POINTS = 2;
+extern double RAZING_POINTS;
 
 /// Maximum number of unclaimed food on map.
-const int MAX_FOOD_COUNT = 20;
+extern int MAX_FOOD_COUNT;
 /// Maximum number of turns before game end.
 const int MAX_TURN_COUNT = 300;
 

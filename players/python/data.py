@@ -70,12 +70,11 @@ class Map:
         return self.is_inside(p) and p not in self.water_tiles
 
 
-@dataclass
+@dataclass(frozen=True)
 class Shade:
     position: Point
     owner: PlayerID
     id: ShadeID
-    just_spawned: bool = True
 
     def get_fear(self, shade_positions: Dict[Point, Shade]) -> int:
         """
@@ -104,12 +103,6 @@ class Shade:
         enemy_fears = self.get_enemy_fears(shade_positions)
         mn_enemy_fear = min(enemy_fears.values()) if enemy_fears else math.inf
         return mn_enemy_fear <= self.get_fear(shade_positions)
-    
-    def spawn_check(self):
-        if self.just_spawned:
-            self.just_spawned = False
-            return True
-        else: return False
 
 
 @dataclass(frozen=True)

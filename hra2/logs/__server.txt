@@ -1,8 +1,6 @@
+Max food count is: 2
 STARTING TURN: 0
-Killing player py: Failed to read turn data.
-Could not kill player py
-Player py has been killed
-Game end: No players left
+Game end: Last player alive
 Sending scores
 [proboj] process terminated
  exit: 1

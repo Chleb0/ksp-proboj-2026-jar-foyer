@@ -21,7 +21,7 @@ public:
 
     /// @brief Sends scores after game ends
     /// @param scores Map of player names and their scores
-    void send_scores(const std::map<std::string, int>&);
+    void send_scores(const std::map<std::string, double>&);
 
     void end_game();
 private:
