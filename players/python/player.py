@@ -206,14 +206,10 @@ class Player(PlayerInterface):
             self.shade_positions[ghost.position] = ghost
 
     def get_turn(self, world: World) -> List[Move]:
-        self.preprocess(world)
         fullboard = getBoard(world, 11)  #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
         Player.log(getCut(fullboard, Point(10, 10), 5))
         Player.log("toto je pravy horny roh")
         Player.log(self.shade_positions)
-        veci = list(self.shade_positions.keys())
-        vec = veci[0]
-        x, y = vec.x, vec.y
         Player.log(getCut(fullboard, Point(0, 0), 5))
         if self.train_mode: return self.get_turn_train(world)
 
