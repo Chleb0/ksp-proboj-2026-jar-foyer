@@ -68,10 +68,8 @@ def getCut(board: Tensor, position: Point, vision: int) -> Tensor:
 
     x, y = position.x, position.y
 
-
-
-    start_x = x+1+VISION
-    start_y = y+1+VISION
+    start_x = x+1+vision
+    start_y = y+1+vision
 
     _, h, w = board.shape
 
@@ -207,11 +205,11 @@ class Player(PlayerInterface):
 
     def get_turn(self, world: World) -> List[Move]:
         self.preprocess(world)
-        fullboard = getBoard(world, 11)  #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
-        Player.log(getCut(fullboard, Point(10, 10), 5))
+        fullboard = getBoard(world, VISION)  #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        Player.log(getCut(fullboard, Point(10, 10), VISION))
         Player.log("toto je pravy horny roh")
         Player.log(self.shade_positions)
-        Player.log(getCut(fullboard, Point(0, 0), 5))
+        Player.log(getCut(fullboard, Point(0, 0), VISION))
         if self.train_mode: return self.get_turn_train(world)
 
         self.log(getCut(fullboard, Point(10, 10), 11))
