@@ -184,7 +184,7 @@ class Player(PlayerInterface):
         Player.log("toto je pravy horny roh", getCut(fullboard, Point(0, 0), 5))
         if self.train_mode: return self.get_turn_train(world)
         fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
-        self.log(getCut(fullboard, Point(10, 10)), 11)
+        self.log(getCut(fullboard, Point(10, 10), 11))
 
         moves = []
         for id, ant in world.alive_shades.items():
