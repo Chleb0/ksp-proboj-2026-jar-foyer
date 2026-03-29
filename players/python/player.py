@@ -48,14 +48,14 @@ def getCut(board: Tensor, position: Point, vision: int) -> Tensor:
 
 
 
-def getBoard(world: World) -> Tensor:
+def getBoard(world: World, vision) -> Tensor:
 
-        Surface = torch.tensor(boardSurface(world), dtype=torch.bool)
-        Enemies = torch.tensor(boardEnemies(world), dtype=torch.bool)
-        Friends = torch.tensor(boardFriends(world), dtype=torch.bool)
-        Homes = torch.tensor(boardHomes(world), dtype=torch.bool)
-        EnemyHomes = torch.tensor(boardEnemyHomes(world), dtype=torch.bool)
-        People = torch.tensor(boardPeople(world), dtype=torch.bool)
+        Surface = torch.tensor(boardSurface(world, vision), dtype=torch.bool)
+        Enemies = torch.tensor(boardEnemies(world, vision), dtype=torch.bool)
+        Friends = torch.tensor(boardFriends(world, vision), dtype=torch.bool)
+        Homes = torch.tensor(boardHomes(world, vision), dtype=torch.bool)
+        EnemyHomes = torch.tensor(boardEnemyHomes(world, vision), dtype=torch.bool)
+        People = torch.tensor(boardPeople(world, vision), dtype=torch.bool)
         
         board = torch.stack([Surface, Enemies, Friends, Homes, EnemyHomes, People])
 
@@ -64,52 +64,72 @@ def getBoard(world: World) -> Tensor:
 def boardSurface(world:World, vision:int) -> List:
     width, height = world.map.width, world.map.height
     layer = [[1 for i in range(width+vision*2)] for j in range(height+vision*2)]
+    for y in range(len(layer)):
+        for x in range(len(layer[y])):
+            if x < vision or y < vision:
+                layer[y][x] = 0
+            if x >= width+vision or y >= width+vision:
+                layer[y][x] = 0
+    shitfpoint = Point(-vision, -vision)
     for voda in world.map.water_tiles:
-        layer[voda.y][voda.x] = 0
+        boardposition = voda+shitfpoint
+        layer[boardposition.y][boardposition.x] = 0
+    stred = Point(0, 0)+shitfpoint
+    layer[stred.y][stred.x] = 0
     return layer
 
-def boardEnemies(world:World) -> List:
+def boardEnemies(world:World, vision:int) -> List:
     width, height = world.map.width, world.map.height
-    layer = [[0 for i in range(width)] for j in range(height)]
+    layer = [[0 for i in range(width+vision*2)] for j in range(height+vision*2)]
+    shitfpoint = Point(-vision, -vision)
     for id, duch in world.alive_shades.items():
         if duch.owner != world.my_id:
             duchpos = duch.position
-            layer[duchpos.y][duchpos.x] = 1
+            boardposition = duchpos+shitfpoint
+            layer[boardposition.y][boardposition.x] = 1
     return layer
 
-def boardFriends(world:World) -> List:
+def boardFriends(world:World, vision:int) -> List:
     width, height = world.map.width, world.map.height
-    layer = [[0 for i in range(width)] for j in range(height)]
+    layer = [[0 for i in range(width+vision*2)] for j in range(height+vision*2)]
+    shitfpoint = Point(-vision, -vision)
     for id, duch in world.alive_shades.items():
         if duch.owner == world.my_id:
             duchpos = duch.position
-            layer[duchpos.y][duchpos.x] = 1
+            boardposition = duchpos+shitfpoint
+            layer[boardposition.y][boardposition.x] = 1
     return layer
 
-def boardHomes(world:World) -> List:
+def boardHomes(world:World, vision:int) -> List:
     width, height = world.map.width, world.map.height
-    layer = [[0 for i in range(width)] for j in range(height)]
+    layer = [[0 for i in range(width+vision*2)] for j in range(height+vision*2)]
+    shitfpoint = Point(-vision, -vision)
     for home in world.alive_tombstones:
         if home.owner == world.my_id:
             homepos = home.position
-            layer[homepos.y][homepos.x] = 1
+            boardposition = homepos+shitfpoint
+            layer[boardposition.y][boardposition.x] = 1
     return layer
 
-def boardEnemyHomes(world:World) -> List:
+def boardEnemyHomes(world:World, vision:int) -> List:
     width, height = world.map.width, world.map.height
-    layer = [[0 for i in range(width)] for j in range(height)]
+    layer = [[0 for i in range(width+vision*2)] for j in range(height+vision*2)]
+    shitfpoint = Point(-vision, -vision)
     for home in world.alive_tombstones:
         if home.owner != world.my_id:
             homepos = home.position
-            layer[homepos.y][homepos.x] = 1
+            boardposition = homepos+shitfpoint
+            layer[boardposition.y][boardposition.x] = 1
     return layer
             
-def boardPeople(world:World) -> List:
+def boardPeople(world:World, vision:int) -> List:
     width, height = world.map.width, world.map.height
-    layer = [[0 for i in range(width)] for j in range(height)]
+    layer = [[0 for i in range(width+vision*2)] for j in range(height+vision*2)]
+    shitfpoint = Point(-vision, -vision)
     for person in world.alive_people:
         personpos = person.position
-        layer[personpos.y][personpos.x] = 1
+        boardpostion = personpos+shitfpoint
+        layer[boardpostion.y][boardpostion.x] = 1
     return layer
 
 
@@ -149,7 +169,7 @@ class Player(PlayerInterface):
         
 
     def get_turn(self, world: World) -> List[Move]:
-        fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        fullboard = getBoard(game.world, 11) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
         Player.log(getCut(fullboard, Point(10, 10), 5))
         Player.log("toto je pravy horny roh", getCut(fullboard, Point(0, 0), 5))
         if self.train_mode: return self.get_turn_train(world)
@@ -168,9 +188,10 @@ class Player(PlayerInterface):
     
     def get_turn_train(self, world: World) -> List[Move]:
         self.interval_counter += 1
+        vision = 11
 
-        fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
-        self.log(getCut(fullboard, Point(10, 10), 11))
+        fullboard = getBoard(game.world, vision) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
+        self.log(getCut(fullboard, Point(10, 10), vision))
 
 
         moves = []
@@ -182,7 +203,7 @@ class Player(PlayerInterface):
 
             fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
 
-            self.log(getCut(fullboard, Point(10, 10), 11))
+            self.log(getCut(fullboard, Point(10, 10), vision))
 
             
             # HLADIK TU DOPLN VECI KTORE RATAS
