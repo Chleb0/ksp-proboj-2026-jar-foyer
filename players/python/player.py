@@ -184,11 +184,14 @@ class Player(PlayerInterface):
 
 
         moves = []
+        shade_diff = self.shades_cnt(world) - self.lt_alive
+        tom_diff = self.tom_cnt(world) - self.lt_tomstones
+
         for id, ant in world.alive_shades.items():
             
             board : Tensor
             extra: Tensor
-            reward: float = self.eval_last_move(world, ant)
+            reward: float = self.eval_last_move(world, ant, shade_diff, tom_diff)
             if len(self.memory["board"][id]) != 0: self.memory["rewards"][id][-1] = reward
 
             fullboard = getBoard(game.world) #v+setky layers pre cel=u mapu treba orezat na vision (11x11)
@@ -196,6 +199,7 @@ class Player(PlayerInterface):
             self.log(getCut(fullboard, Point(10, 10), 11))
 
             action, log_prob, _ = self.model.model.get_action(board, extra)
+            volba = int(action.item())
 
             # HLADIK TU DOPLN VECI KTORE RATAS
             self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
@@ -207,16 +211,23 @@ class Player(PlayerInterface):
                                                 # nic/ clovek
 
             self.memory["extra"][id].append(extra)  #toto chcu byt tie features
-            self.memory["actions"][id].append(action.item())
+            self.memory["actions"][id].append(int(action.item()))
             self.memory["log_probs"][id].append(log_prob.item())
             self.memory["rewards"][id].append(0.0)
-            self.memory["dones"][id].append(done)
+            self.memory["dones"][id].append(ant.will_i_die(self.shade_positions))
 
             self.update_lt(world)
 
-            akcia: List
-
             #action je jeden boolean set na true vo vektore velkosti 5
+
+            """
+            Volby
+            1 - hore
+            2 - doprava
+            3 - dole
+            4 - dolava
+            5 - za clovekom
+            """
 
             #nech sa rozhodne medzi
             # chod k clovekovi najblizsiemu
@@ -243,20 +254,10 @@ class Player(PlayerInterface):
                 out += 1
         return out
 
-    def eval_last_move(self, world: World, ghost: Shade) -> float:
-        shade_diff = self.shades_cnt(world) - self.lt_alive
-        tom_diff = self.tom_cnt(world) - self.lt_tomstones
-        
-        for id, ant in world.alive_shades.items():
-            
-
-            # HLADIK TU DOPLN VECI KTORE RATAS
-            self.memory["board"][id].append(board) #toto chce byt Tensor z knihovne torch, 11x11x layery ktore chceme
-            self.memory["extra"][id].append(extra)  #toto chcu byt tie features
-            self.memory["actions"][id].append(action.item())
-            self.memory["log_probs"][id].append(log_prob.item())
-            self.memory["rewards"][id].append(reward)
-            self.memory["dones"][id].append(done)
+    def eval_last_move(self, world: World, ghost: Shade, shade_diff: int, tom_diff: int) -> float:
+        kills = 0
+        dies = ghost.will_i_die(self.shade_positions)
+        return kills * 10 - dies * 10 + shade_diff + tom_diff*50
 
     def setzeromem(self, ghost: ShadeID):
         self.memory["board"][ghost] = []
